@@ -1,0 +1,10 @@
+.main-page.screen{
+    -fx-background-color: #FA9494;
+}
+.main-page.button{
+    -fx-background-color: #ffffff;
+    -fx-font-family: "Cafe24Ssuround";
+}
+#login{
+
+}

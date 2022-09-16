@@ -18,8 +18,8 @@ public class APIExamFace {
             String paramName = "image"; // 파라미터명은 image로 지정
             String imgFile = "이미지 파일 경로 ";
             File uploadFile = new File(imgFile);
-            String apiURL = "https://openapi.naver.com/v1/vision/celebrity"; // 유명인 얼굴 인식
-            //String apiURL = "https://openapi.naver.com/v1/vision/face"; // 얼굴 감지
+//            String apiURL = "https://openapi.naver.com/v1/vision/celebrity"; // 유명인 얼굴 인식
+            String apiURL = "https://openapi.naver.com/v1/vision/face"; // 얼굴 감지
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setUseCaches(false);

@@ -3,16 +3,18 @@ package com.example.faceornamental;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class MainPage extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        Font.loadFont(getClass().getResourceAsStream("Cafe24Ssurround.ttf"),16);
+        FXMLLoader fxmlLoader = new FXMLLoader(MainPage.class.getResource("main-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 500, 800);
+        stage.setTitle("너의 관상은");
         stage.setScene(scene);
         stage.show();
     }
