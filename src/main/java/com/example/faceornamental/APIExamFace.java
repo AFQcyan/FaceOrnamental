@@ -11,12 +11,12 @@ public class APIExamFace {
     public static void main(String[] args) {
 
         StringBuffer reqStr = new StringBuffer();
-        String clientId = "YOUR_CLIENT_ID";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "YOUR_CLIENT_SECRET";//애플리케이션 클라이언트 시크릿값";
+        String clientId = "Ioc_NlXQCsnnx4k5zacM";//애플리케이션 클라이언트 아이디값";
+        String clientSecret = "1PRDknN3bW";//애플리케이션 클라이언트 시크릿값";
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = "이미지 파일 경로 ";
+            String imgFile = "src\\main\\resources\\com\\example\\faceornamental\\images\\hyeonMu.jpg";
             File uploadFile = new File(imgFile);
 //            String apiURL = "https://openapi.naver.com/v1/vision/celebrity"; // 유명인 얼굴 인식
             String apiURL = "https://openapi.naver.com/v1/vision/face"; // 얼굴 감지
