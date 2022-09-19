@@ -10,9 +10,11 @@ public class APIExamFace {
 
     public static void main(String[] args) {
 
+
         StringBuffer reqStr = new StringBuffer();
         String clientId = "Ioc_NlXQCsnnx4k5zacM";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "1PRDknN3bW";//애플리케이션 클라이언트 시크릿값";
+
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
