@@ -3,8 +3,9 @@
 }
 .main-page.button{
     -fx-background-color: #ffffcc;
-    -fx-font-family: "Cafe24Ssurround";
 }
-#login{
-
+.face-main{
+}
+.image-show{
+    -fx-border-color: black;
 }

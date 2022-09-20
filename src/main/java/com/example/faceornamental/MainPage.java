@@ -11,9 +11,10 @@ import java.io.IOException;
 public class MainPage extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Font.loadFont(getClass().getResourceAsStream("src\\main\\java\\com\\example\\faceornamnetal\\Cafe24Ssurround\\Cafe24Ssurround.ttf"),16);
+        Font.loadFont(getClass().getResourceAsStream("Cafe24Ssurround.Cafe24Ssurround.ttf"),16);
         FXMLLoader fxmlLoader = new FXMLLoader(MainPage.class.getResource("main-page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 800);
+        scene.getStylesheets().add(getClass().getResource("style.css").toString());
         stage.setTitle("너의 관상은");
         stage.setScene(scene);
         stage.show();
