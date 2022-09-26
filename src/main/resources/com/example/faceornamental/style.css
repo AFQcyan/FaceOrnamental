@@ -9,3 +9,9 @@
 .image-show{
     -fx-border-color: black;
 }
+.face-background{
+    -fx-background-color: #FA9494;
+}
+.face-btn{
+    -fx-background-color: #ffffcc;
+}

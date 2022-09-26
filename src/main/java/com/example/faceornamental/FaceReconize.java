@@ -26,25 +26,32 @@ public class FaceReconize {
     private Button horizonButton;
     @FXML
     private Button submittingButton;
+    @FXML
+    private Button photoReSetButton;
 
     private Boolean isPhotoSet = false;
 
-    public void changeToVertical(){
+    static String sendToNext;
+
+    public void changeToVertical() {
         showImage.setFitWidth(300);
         showImage.setFitHeight(400);
         showImage.setLayoutX(90);
         showImage.setLayoutY(121);
     }
-    public void changeToHorizon(){
+
+    public void changeToHorizon() {
         showImage.setFitWidth(400);
         showImage.setFitHeight(300);
         showImage.setLayoutX(54);
         showImage.setLayoutY(178);
     }
-    public void submitManage(){
-        if(isPhotoSet == true){
-            try{
+
+    public String submitManage() {
+        if (isPhotoSet == true) {
+            try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("face-defrag.fxml"));
+                System.out.println(sendToNext);
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root1));
@@ -53,37 +60,53 @@ public class FaceReconize {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
-        File selectedFile = fileChooser.showOpenDialog(null);
-        if (selectedFile != null) {
-            FileInputStream fis = null;
-            try {
-                fis = new FileInputStream(selectedFile);
-                BufferedInputStream bis = new BufferedInputStream(fis);
-
-                Image img = new Image(bis);
-                showImage.setImage(img);
-
+        } else {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open Resource File");
+            fileChooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+            File selectedFile = fileChooser.showOpenDialog(null);
+            if (selectedFile != null) {
+                setSendToNext(selectedFile.toString());
+                FileInputStream fis = null;
                 try {
-                    bis.close();
-                    fis.close();
-                    isPhotoSet = true;
-                } catch (IOException e) {
-                    System.out.println("a");
+                    fis = new FileInputStream(selectedFile);
+                    BufferedInputStream bis = new BufferedInputStream(fis);
+
+                    Image img = new Image(bis);
+                    showImage.setImage(img);
+
+                    try {
+                        bis.close();
+                        fis.close();
+                        isPhotoSet = true;
+                        submittingButton.setText("사진 검사하기");
+                        return sendToNext;
+                    } catch (IOException e) {
+                        System.out.println("a");
+                        e.printStackTrace();
+                    }
+                } catch (FileNotFoundException e) {
+                    System.out.println("b");
                     e.printStackTrace();
                 }
-            } catch (FileNotFoundException e) {
-                System.out.println("b");
-                e.printStackTrace();
+            } else {
+                System.out.println("실패");
             }
         }
-        else{
-            System.out.println("실패");
-        }
+        return null;
+    }
+    public void photoReSet(){
+        isPhotoSet = false;
+        showImage.setImage(null);
+        submittingButton.setText("사진 등록하기");
+    }
+
+    public String getSendToNext() {
+        return sendToNext;
+    }
+
+    public void setSendToNext(String sendToNext) {
+        this.sendToNext = sendToNext;
     }
 }

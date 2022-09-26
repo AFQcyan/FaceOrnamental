@@ -8,27 +8,26 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import javafx.scene.control.Button;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
-public class FaceDefrag extends FaceReconize{
+public class FaceDefrag{
 
     @FXML
     private Button getSetGo;
 
 
-    FaceReconize faceReco = new FaceReconize();
     public void faceDefrag(){
+
+
         StringBuffer reqStr = new StringBuffer();
         String clientId = "Ioc_NlXQCsnnx4k5zacM";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "1PRDknN3bW";//애플리케이션 클라이언트 시크릿값";
 
 
         try {
+            FaceReconize fcr = new FaceReconize();
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = "src\\main\\resources\\com\\example\\faceornamental\\images\\seagull.jpg";
+            System.out.println(fcr.getSendToNext());
+            String imgFile = fcr.sendToNext;
             File uploadFile = new File(imgFile);
 //            String apiURL = "https://openapi.naver.com/v1/vision/celebrity"; // 유명인 얼굴 인식
             String apiURL = "https://openapi.naver.com/v1/vision/face"; // 얼굴 감지
@@ -78,24 +77,12 @@ public class FaceDefrag extends FaceReconize{
                     response.append(inputLine);
                 }
                 br.close();
-                printInfo(response.toString());
+                System.out.println(response.toString());
             } else {
                 System.out.println("error !!!");
             }
         } catch (Exception e) {
             System.out.println(e);
-        }
-    }
-    public void printInfo(String responseJSON){
-        String target = responseJSON;
-
-        try {
-            JSONParser jsonParse = new JSONParser();
-            JSONObject jsonObj = (JSONObject) jsonParse.parse(target);
-            JSONArray parsedTarget = (JSONArray) jsonObj.get("info");
-            System.out.println(parsedTarget.toString());
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
     }
 }
