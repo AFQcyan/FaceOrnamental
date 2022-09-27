@@ -2,6 +2,7 @@ package com.example.faceornamental;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,8 +10,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MainPageHandler {
+public class MainPageHandler{
     @FXML
     private Text mainText;
     @FXML
@@ -24,12 +27,10 @@ public class MainPageHandler {
 
     public void goToFaceRecog(){
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("face-reconize.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.setTitle("안뭏");
-            stage.show();
+            Parent nextScene = FXMLLoader.load(getClass().getResource("face-reconize.fxml"));
+            Scene scene = new Scene(nextScene);
+            Stage primaryStage = (Stage) recognizeFaceBtn.getScene().getWindow();
+            primaryStage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

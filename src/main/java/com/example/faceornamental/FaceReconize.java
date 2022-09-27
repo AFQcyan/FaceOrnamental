@@ -49,14 +49,11 @@ public class FaceReconize {
 
     public String submitManage() {
         if (isPhotoSet == true) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("face-defrag.fxml"));
-                System.out.println(sendToNext);
-                Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root1));
-                stage.setTitle("안뭏");
-                stage.show();
+            try{
+                Parent nextScene = FXMLLoader.load(getClass().getResource("face-defrag.fxml"));
+                Scene scene = new Scene(nextScene);
+                Stage primaryStage = (Stage) submittingButton.getScene().getWindow();
+                primaryStage.setScene(scene);
             } catch (IOException e) {
                 e.printStackTrace();
             }

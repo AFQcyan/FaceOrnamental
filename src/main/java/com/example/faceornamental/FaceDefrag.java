@@ -7,6 +7,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import javafx.scene.control.Button;
 
 public class FaceDefrag{
@@ -18,7 +23,6 @@ public class FaceDefrag{
     public void faceDefrag(){
 
 
-        StringBuffer reqStr = new StringBuffer();
         String clientId = "Ioc_NlXQCsnnx4k5zacM";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "1PRDknN3bW";//애플리케이션 클라이언트 시크릿값";
 
@@ -77,12 +81,52 @@ public class FaceDefrag{
                     response.append(inputLine);
                 }
                 br.close();
-                System.out.println(response.toString());
+                printInfo(response.toString());
+
             } else {
                 System.out.println("error !!!");
             }
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+    void printInfo(String target){
+        JSONParser jsonParser = new JSONParser();
+
+        //JSON데이터를 넣어 JSON Object 로 만들어 준다.
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = (JSONObject) jsonParser.parse(target);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        //books의 배열을 추출
+        JSONArray getFaces = (JSONArray) jsonObject.get("faces");
+        JSONObject getFaceInfo = (JSONObject) getFaces.get(0);
+
+        JSONObject getEmotion = (JSONObject) getFaceInfo.get("emotion");
+        String Emotion = (String) getEmotion.get("value");
+        Double getEmotionConfidence = (Double) getEmotion.get("confidence");
+        Double emotionConfidence = (double)Math.round(getEmotionConfidence * 1000000)/10000;
+        System.out.println("감정 : " + Emotion + " / 확률 : " + emotionConfidence + "%");
+
+        JSONObject getGender = (JSONObject) getFaceInfo.get("gender");
+        String gender = (String) getGender.get("value");
+        Double getGenderConfidence = (Double) getGender.get("confidence");
+        Double genderConfidence =  (double)Math.round(getGenderConfidence * 1000000)/10000;
+        System.out.println("성별 : " + gender + " / 확률 : " + genderConfidence + "%");
+
+        JSONObject getAge = (JSONObject) getFaceInfo.get("age");
+        String age = (String) getAge.get("value");
+        Double getAgeConfidence = (Double) getAge.get("confidence");
+        Double ageConfidence =  (double)Math.round(getAgeConfidence * 1000000)/10000;
+        System.out.println("나이 : " + age + " / 확률 : " + ageConfidence + "%");
+
+        JSONObject getPose = (JSONObject) getFaceInfo.get("pose");
+        String pose = (String) getPose.get("value");
+        Double getPoseConfidence = (Double) getPose.get("confidence");
+        Double poseConfidence =  (double)Math.round(getPoseConfidence * 1000000)/10000;
+        System.out.println("자세 : " + pose + " / 확률 : " + poseConfidence + "%");
     }
 }

@@ -2,6 +2,7 @@ module com.example.faceornamental {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
+    requires json.simple;
 //    requires json.simple;
 
 
