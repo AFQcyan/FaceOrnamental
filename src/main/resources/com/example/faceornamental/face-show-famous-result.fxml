@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="500.0" styleClass="face-background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.faceornamental.FaceShowFamousResult">
+   <children>
+      <Text layoutX="16.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="당신이 닮은 연예인은...">
+         <font>
+            <Font name="Hancom Gothic Bold" size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="headerFamousCeleb" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="강찬석 님" textAlignment="CENTER" wrappingWidth="500.0">
+         <font>
+            <Font name="Hancom Gothic Bold" size="56.0" />
+         </font>
+      </Text>
+      <Text layoutX="382.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="입니다!">
+         <font>
+            <Font name="Hancom Gothic Bold" size="26.0" />
+         </font>
+      </Text>
+      <Text layoutX="28.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!! 사진에 2명 이상의 얼굴이 포함된 경우, 오른쪽에 있는 얼굴부터 차례로 분석합니다." wrappingWidth="448.919921875">
+         <font>
+            <Font name="Hancom Gothic Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="headerFamousConfidence" layoutX="278.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="확률(100.0000%)" textAlignment="RIGHT">
+         <font>
+            <Font name="Hancom Gothic Bold" size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="showToNext" layoutX="113.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="다음 결과가 남았어요! 버튼을 눌러 다음 결과를 확인해보세요!" textAlignment="CENTER" wrappingWidth="279.03997802734375">
+         <font>
+            <Font name="Hancom Gothic Bold" size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="explainFamous" layoutX="7.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="당신은 *** 님과 [아주 많이] 닮았어요! ***님의 얼굴이 궁금하다면, 직접 검색해보세요!" textAlignment="CENTER" wrappingWidth="485.03997802734375">
+         <font>
+            <Font name="Hancom Gothic Bold" size="26.0" />
+         </font>
+      </Text>
+      <Button fx:id="submitResultBtn" layoutX="101.0" layoutY="681.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="300.0" stylesheets="@style.css" text="다음 결과 보기">
+         <font>
+            <Font name="Hancom Gothic Bold" size="30.0" />
+         </font>
+         <styleClass>
+            <String fx:value="face-recognize-btn" />
+            <String fx:value="face-btn" />
+         </styleClass>
+      </Button>
+      <Text fx:id="countRemain" layoutX="111.0" layoutY="675.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(1/2)" textAlignment="CENTER" wrappingWidth="279.03997802734375">
+         <font>
+            <Font name="Hancom Gothic Bold" size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
