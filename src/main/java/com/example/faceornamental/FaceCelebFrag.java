@@ -7,6 +7,7 @@ import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,9 +25,9 @@ public class FaceCelebFrag {
     @FXML
     private Button getSetGo;
 
-    String[] getFamous;
-    double[] famousConfidence;
-    int faceLength;
+    static ArrayList<String> getFamous = new ArrayList<>();
+    static ArrayList<Double> famousConfidence = new ArrayList<>();
+    static int faceLength;
 
 
     public void faceDefrag() {
@@ -124,14 +125,13 @@ public class FaceCelebFrag {
         faceLength = getFaces.size();
         System.out.println(faceLength);
         for (int i = 0; i < faceLength; i++) {
-
             JSONObject getFaceInfo = (JSONObject) getFaces.get(i);
-
             JSONObject getCeleb = (JSONObject) getFaceInfo.get("celebrity");
 
-            getFamous[i] = (String) getCeleb.get("value");
+            getFamous.add((String) getCeleb.get("value"));
+            System.out.println();
             Double getFamousConfidence = (Double) getCeleb.get("confidence");
-            famousConfidence[i] = (double) Math.round(getFamousConfidence * 1000000) / 10000;
+            famousConfidence.add((double) Math.round(getFamousConfidence * 1000000) / 10000);
         }
     }
 }
