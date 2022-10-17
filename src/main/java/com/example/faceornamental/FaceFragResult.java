@@ -9,19 +9,19 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
-public class FaceShowFamousResult extends FaceCelebFrag{
-
+public class FaceFragResult extends FaceDefrag{
 
     @FXML
-    Text headerFamousCeleb;
+    Text headerFaceReco;
     @FXML
-    Text headerFamousConfidence;
+    Text emotionText;
     @FXML
-    Text explainFamous;
+    Text genderText;
     @FXML
-    Text showToNext;
+    Text ageText;
+    @FXML
+    Text poseText;
     @FXML
     Text countRemain;
     @FXML
@@ -34,7 +34,7 @@ public class FaceShowFamousResult extends FaceCelebFrag{
     boolean isResultEnd = false;
 
 
-    String calcPercent(double conf){
+    String emotionTrans(double conf){
         String per = " ";
         if(conf <= 20){
             per = "아주 약간";
@@ -55,19 +55,18 @@ public class FaceShowFamousResult extends FaceCelebFrag{
     }
 
     void printFamous(){
-        headerFamousCeleb.setText(getFamous.get(status));
+        emotionText.setText("감정 : " + faceInfos.get(status)[0] + " (" + faceConfidences.get(status)[0] +"%)");
         countRemain.setText("(" + (status + 1) + " / " + endResult + ")");
-        headerFamousConfidence.setText("확률(" + famousConfidence.get(status) + "%)");
-        explainFamous.setText("당신은 " + getFamous.get(status) + " 님과 \n[" + calcPercent(famousConfidence.get(status)) +"] 닮았어요!\n " + getFamous.get(status)  + "님의 얼굴이 궁금하다면,\n 직접 검색해보세요!");
+        headerFamousConfidence.setText("확률(" + faceConfidences.get(status)[0] + "%)");
     }
 
     public void setResult(){
-        endResult =  getFamous.size();
+        endResult =  faceInfos.size();
         if(status == endResult - 1){
             submitResultBtn.setText("끝내기");
-        showToNext.setText("모든 결과가 산출되었습니다. 끝내기 버튼을 누르면 해당 검사 결과가 자동저장됩니다.");
-        printFamous();
-        status++;
+            showToNext.setText("모든 결과가 산출되었습니다. 끝내기 버튼을 누르면 해당 검사 결과가 자동저장됩니다.");
+            printFamous();
+            status++;
         }
         else if(status == 0){
             submitResultBtn.setText("다음 결과 보기");
@@ -91,6 +90,4 @@ public class FaceShowFamousResult extends FaceCelebFrag{
             status++;
         }
     }
-
-
 }

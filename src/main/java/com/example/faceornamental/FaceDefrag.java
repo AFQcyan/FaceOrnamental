@@ -3,10 +3,18 @@ package com.example.faceornamental;
 import javafx.fxml.FXML;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,13 +22,24 @@ import org.json.simple.parser.ParseException;
 
 import javafx.scene.control.Button;
 
-public class FaceDefrag{
+public class FaceDefrag {
 
     @FXML
     private Button getSetGo;
 
+    String[] info = new String[4];
+    double[] conf = new double[4];
+    long[] faceX = new long[5];
+    long[] faceY = new long[5];
 
-    public void faceDefrag(){
+    static ArrayList<String[]> faceInfos = new ArrayList<>();
+    static ArrayList<double[]> faceConfidences = new ArrayList<>();
+    static ArrayList<long[]> faceXs = new ArrayList<>();
+    static ArrayList<long[]> faceYs = new ArrayList<>();
+    static int faceLength;
+
+
+    public void faceDefrag() {
 
 
         String clientId = "Ioc_NlXQCsnnx4k5zacM";//애플리케이션 클라이언트 아이디값";
@@ -28,6 +47,12 @@ public class FaceDefrag{
 
 
         try {
+
+            faceInfos = new ArrayList<>();
+            faceConfidences = new ArrayList<>();
+            faceXs = new ArrayList<>();
+            faceYs = new ArrayList<>();
+
             FaceReconize fcr = new FaceReconize();
             String paramName = "image"; // 파라미터명은 image로 지정
             System.out.println(fcr.getSendToNext());
@@ -36,7 +61,7 @@ public class FaceDefrag{
 //            String apiURL = "https://openapi.naver.com/v1/vision/celebrity"; // 유명인 얼굴 인식
             String apiURL = "https://openapi.naver.com/v1/vision/face"; // 얼굴 감지
             URL url = new URL(apiURL);
-            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setUseCaches(false);
             con.setDoOutput(true);
             con.setDoInput(true);
@@ -52,7 +77,7 @@ public class FaceDefrag{
             String fileName = uploadFile.getName();
             writer.append("--" + boundary).append(LINE_FEED);
             writer.append("Content-Disposition: form-data; name=\"" + paramName + "\"; filename=\"" + fileName + "\"").append(LINE_FEED);
-            writer.append("Content-Type: "  + URLConnection.guessContentTypeFromName(fileName)).append(LINE_FEED);
+            writer.append("Content-Type: " + URLConnection.guessContentTypeFromName(fileName)).append(LINE_FEED);
             writer.append(LINE_FEED);
             writer.flush();
             FileInputStream inputStream = new FileInputStream(uploadFile);
@@ -68,19 +93,27 @@ public class FaceDefrag{
             writer.close();
             BufferedReader br = null;
             int responseCode = con.getResponseCode();
-            if(responseCode==200) { // 정상 호출
+            if (responseCode == 200) { // 정상 호출
                 br = new BufferedReader(new InputStreamReader(con.getInputStream()));
             } else {  // 에러 발생
                 System.out.println("error!!!!!!! responseCode= " + responseCode);
                 br = new BufferedReader(new InputStreamReader(con.getInputStream()));
             }
             String inputLine;
-            if(br != null) {
+            if (br != null) {
                 StringBuffer response = new StringBuffer();
                 while ((inputLine = br.readLine()) != null) {
                     response.append(inputLine);
                 }
                 br.close();
+                try{
+                    Parent nextScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("face-frag-result.fxml")));
+                    Scene scene = new Scene(nextScene);
+                    Stage primaryStage = (Stage) getSetGo.getScene().getWindow();
+                    primaryStage.setScene(scene);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 printInfo(response.toString());
 
             } else {
@@ -90,7 +123,8 @@ public class FaceDefrag{
             System.out.println(e);
         }
     }
-    void printInfo(String target){
+
+    void printInfo(String target) {
         JSONParser jsonParser = new JSONParser();
 
         //JSON데이터를 넣어 JSON Object 로 만들어 준다.
@@ -101,84 +135,112 @@ public class FaceDefrag{
             e.printStackTrace();
         }
 
-        //faces의 배열을 추출
         JSONArray getFaces = (JSONArray) jsonObject.get("faces");
-        int faceLength = getFaces.size();
-        System.out.println(faceLength);
-        JSONObject getFaceInfo = (JSONObject) getFaces.get(0);
+        faceLength = getFaces.size();
+        //faces의 배열을 추출
 
-        JSONObject getEmotion = (JSONObject) getFaceInfo.get("emotion");
-        String emotion = (String) getEmotion.get("value");
-        Double getEmotionConfidence = (Double) getEmotion.get("confidence");
-        Double emotionConfidence = (double)Math.round(getEmotionConfidence * 1000000)/10000;
-        System.out.println("감정 : " + emotion + " / 확률 : " + emotionConfidence + "%");
+        for (int i = 0; i < faceLength; i++) {
+            info = new String[4];
+            conf = new double[4];
+            faceX = new long[5];
+            faceY = new long[5];
 
-        JSONObject getGender = (JSONObject) getFaceInfo.get("gender");
-        String gender = (String) getGender.get("value");
-        Double getGenderConfidence = (Double) getGender.get("confidence");
-        Double genderConfidence =  (double)Math.round(getGenderConfidence * 1000000)/10000;
-        System.out.println("성별 : " + gender + " / 확률 : " + genderConfidence + "%");
+            System.out.println(faceLength);
+            JSONObject getFaceInfo = (JSONObject) getFaces.get(i);
 
-        JSONObject getAge = (JSONObject) getFaceInfo.get("age");
-        String age = (String) getAge.get("value");
-        Double getAgeConfidence = (Double) getAge.get("confidence");
-        Double ageConfidence =  (double)Math.round(getAgeConfidence * 1000000)/10000;
-        System.out.println("나이 : " + age + " / 확률 : " + ageConfidence + "%");
+            JSONObject getEmotion = (JSONObject) getFaceInfo.get("emotion");
+            String emotion = (String) getEmotion.get("value");
+            Double getEmotionConfidence = (Double) getEmotion.get("confidence");
+            Double emotionConfidence = (double) Math.round(getEmotionConfidence * 10000) / 100;
+            info[0] = emotion;
+            conf[0] = emotionConfidence;
 
-        JSONObject getPose = (JSONObject) getFaceInfo.get("pose");
-        String pose = (String) getPose.get("value");
-        Double getPoseConfidence = (Double) getPose.get("confidence");
-        Double poseConfidence =  (double)Math.round(getPoseConfidence * 1000000)/10000;
-        System.out.println("자세 : " + pose + " / 확률 : " + poseConfidence + "%");
+            JSONObject getGender = (JSONObject) getFaceInfo.get("gender");
+            String gender = (String) getGender.get("value");
+            Double getGenderConfidence = (Double) getGender.get("confidence");
+            Double genderConfidence = (double) Math.round(getGenderConfidence * 10000) / 100;
+            info[1] = gender;
+            conf[1] = genderConfidence;
 
-        //얼굴좌표 불러오기
+            JSONObject getAge = (JSONObject) getFaceInfo.get("age");
+            String age = (String) getAge.get("value");
+            Double getAgeConfidence = (Double) getAge.get("confidence");
+            Double ageConfidence = (double) Math.round(getAgeConfidence * 10000) / 100;
+            info[2] = age;
+            conf[2] = ageConfidence;
 
-        JSONObject getFaceLocate = (JSONObject) getFaceInfo.get("roi");
-        long faceStartX = (long) getFaceLocate.get("x");
-        long faceStartY = (long) getFaceLocate.get("y");
-        long faceWidth = (long) getFaceLocate.get("width");
-        long faceHeight = (long) getFaceLocate.get("height");
-        System.out.println("얼굴 시작 좌표 : ( " + faceStartX+ " , " + faceStartY + " )");
-        System.out.println("얼굴 넓이 : ( " + faceWidth+ " , " + faceHeight + " )");
-        long faceEndX = faceStartX + faceWidth;
-        long faceEndY = faceStartY + faceHeight;
+            JSONObject getPose = (JSONObject) getFaceInfo.get("pose");
+            String pose = (String) getPose.get("value");
+            Double getPoseConfidence = (Double) getPose.get("confidence");
+            Double poseConfidence = (double) Math.round(getPoseConfidence * 10000) / 100;
+            info[3] = pose;
+            conf[3] = poseConfidence;
 
-        JSONObject getElementLocate = (JSONObject) getFaceInfo.get("landmark");
+            //얼굴좌표 불러오기
+            System.out.println(Arrays.toString(info));
+            System.out.println(Arrays.toString(conf));
 
-        JSONObject getLeftEye = (JSONObject) getElementLocate.get("leftEye");
-        long leftEyeX = (long) getLeftEye.get("x");
-        long leftEyeY = (long) getLeftEye.get("y");
-        long relativeLeftEyeX = leftEyeX - faceStartX;
-        long relativeLeftEyeY = leftEyeY - faceStartY;
-        System.out.println("왼쪽 눈 상대좌표 : ( " + relativeLeftEyeX + " , " + relativeLeftEyeY + " )");
+            JSONObject getFaceLocate = (JSONObject) getFaceInfo.get("roi");
+            long faceStartX = (long) getFaceLocate.get("x");
+            long faceStartY = (long) getFaceLocate.get("y");
+            long faceWidth = (long) getFaceLocate.get("width");
+            long faceHeight = (long) getFaceLocate.get("height");
+            long faceEndX = faceStartX + faceWidth;
+            long faceEndY = faceStartY + faceHeight;
 
-        JSONObject getRightEye = (JSONObject) getElementLocate.get("rightEye");
-        long rightEyeX = (long) getRightEye.get("x");
-        long rightEyeY = (long) getRightEye.get("y");
-        long relativeRightEyeX = rightEyeX - faceStartX;
-        long relativeRightEyeY = rightEyeY - faceStartY;
-        System.out.println("오른쪽 눈 상대좌표 : ( " + relativeRightEyeX + " , " + relativeRightEyeY + " )");
+            JSONObject getElementLocate = (JSONObject) getFaceInfo.get("landmark");
 
-        JSONObject getNose = (JSONObject) getElementLocate.get("nose");
-        long noseX = (long) getNose.get("x");
-        long noseY = (long) getNose.get("y");
-        long relativeNoseX = noseX - faceStartX;
-        long relativeNoseY = noseY - faceStartY;
-        System.out.println("코 상대좌표 : ( " + relativeNoseX + " , " + relativeNoseY + " )");
+            JSONObject getLeftEye = (JSONObject) getElementLocate.get("leftEye");
+            long leftEyeX = (long) getLeftEye.get("x");
+            long leftEyeY = (long) getLeftEye.get("y");
+            long relativeLeftEyeX = leftEyeX - faceStartX;
+            long relativeLeftEyeY = leftEyeY - faceStartY;
+            faceX[0] = relativeLeftEyeX;
+            faceY[0] = relativeLeftEyeY;
 
-        JSONObject getLeftMouth = (JSONObject) getElementLocate.get("leftMouth");
-        long leftMouthX = (long) getLeftMouth.get("x");
-        long leftMouthY = (long) getLeftMouth.get("y");
-        long relativeLeftMouthX = leftMouthX - faceStartX;
-        long relativeLeftMouthY = leftMouthY - faceStartY;
-        System.out.println("왼쪽 입 상대좌표 : ( " + relativeLeftMouthX + " , " + relativeLeftMouthY + " )");
 
-        JSONObject getRightMouth = (JSONObject) getElementLocate.get("rightMouth");
-        long rightMouthX = (long) getRightMouth.get("x");
-        long rightMouthY = (long) getRightMouth.get("y");
-        long relativeRightMouthX = rightMouthX - faceStartX;
-        long relativeRightMouthY = rightMouthY - faceStartY;
-        System.out.println("오른쪽 입 상대좌표 : ( " + relativeRightMouthX + " , " + relativeRightMouthY + " )");
+            JSONObject getRightEye = (JSONObject) getElementLocate.get("rightEye");
+            long rightEyeX = (long) getRightEye.get("x");
+            long rightEyeY = (long) getRightEye.get("y");
+            long relativeRightEyeX = rightEyeX - faceStartX;
+            long relativeRightEyeY = rightEyeY - faceStartY;
+            faceX[1] = relativeRightEyeX;
+            faceY[1] = relativeRightEyeY;
+
+            JSONObject getNose = (JSONObject) getElementLocate.get("nose");
+            long noseX = (long) getNose.get("x");
+            long noseY = (long) getNose.get("y");
+            long relativeNoseX = noseX - faceStartX;
+            long relativeNoseY = noseY - faceStartY;
+            faceX[2] = relativeNoseX;
+            faceY[2] = relativeNoseY;
+
+            JSONObject getLeftMouth = (JSONObject) getElementLocate.get("leftMouth");
+            long leftMouthX = (long) getLeftMouth.get("x");
+            long leftMouthY = (long) getLeftMouth.get("y");
+            long relativeLeftMouthX = leftMouthX - faceStartX;
+            long relativeLeftMouthY = leftMouthY - faceStartY;
+            faceX[3] = relativeLeftMouthX;
+            faceY[3] = relativeLeftMouthY;
+
+            JSONObject getRightMouth = (JSONObject) getElementLocate.get("rightMouth");
+            long rightMouthX = (long) getRightMouth.get("x");
+            long rightMouthY = (long) getRightMouth.get("y");
+            long relativeRightMouthX = rightMouthX - faceStartX;
+            long relativeRightMouthY = rightMouthY - faceStartY;
+            faceX[4] = relativeRightMouthX;
+            faceY[4] = relativeRightMouthY;
+
+            System.out.println(Arrays.toString(faceX));
+            System.out.println(Arrays.toString(faceY));
+
+
+            faceInfos.add(info);
+            faceConfidences.add(conf);
+            faceXs.add(faceX);
+            faceYs.add(faceY);
+        }
+
 
 
     }

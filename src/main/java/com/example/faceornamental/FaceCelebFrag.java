@@ -38,6 +38,8 @@ public class FaceCelebFrag {
 
 
         try {
+            getFamous = new ArrayList<>();
+            famousConfidence = new ArrayList<>();
             FaceFamous fcr = new FaceFamous();
             String paramName = "image"; // 파라미터명은 image로 지정
             System.out.println(fcr.getSendToNext());

@@ -20,7 +20,7 @@
                   <String fx:value="button" />
                </styleClass>
             </Button>
-            <Button fx:id="recognizeFaceBtn" layoutX="23.0" layoutY="140.0" mnemonicParsing="false" onAction="#goToFindFamous" prefHeight="66.0" prefWidth="272.0" stylesheets="@style.css" text="얼굴 관상 확인하기">
+            <Button fx:id="recognizeFaceBtn" layoutX="23.0" layoutY="140.0" mnemonicParsing="false" onAction="#goToFaceRecog" prefHeight="66.0" prefWidth="272.0" stylesheets="@style.css" text="얼굴 관상 확인하기">
                <font>
                   <Font name="Malgun Gothic Bold" size="21.0" />
                </font>
