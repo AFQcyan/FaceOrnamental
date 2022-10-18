@@ -10,6 +10,9 @@ public class APIExamFace {
 
     public static void main(String[] args) {
 
+        DBUtil db = new DBUtil();
+
+        db.fetchDB();
 
         StringBuffer reqStr = new StringBuffer();
         String clientId = "Ioc_NlXQCsnnx4k5zacM";//애플리케이션 클라이언트 아이디값";
