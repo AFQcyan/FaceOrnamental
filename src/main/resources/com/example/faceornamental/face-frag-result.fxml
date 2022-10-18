@@ -13,7 +13,7 @@
                 <Font name="Hancom Gothic Bold" size="26.0" />
             </font>
         </Text>
-        <Text fx:id="headerFamousCeleb" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="???" textAlignment="CENTER" wrappingWidth="500.0">
+        <Text fx:id="headerFaceReco" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="???" textAlignment="CENTER" wrappingWidth="500.0">
             <font>
                 <Font name="Hancom Gothic Bold" size="56.0" />
             </font>
@@ -28,7 +28,7 @@
                 <Font name="Hancom Gothic Bold" size="18.0" />
             </font>
         </Text>
-        <Button fx:id="submitResultBtn" layoutX="101.0" layoutY="681.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="300.0" stylesheets="@style.css" text="결과 보기">
+        <Button fx:id="submitResultBtn" layoutX="101.0" layoutY="681.0" mnemonicParsing="false" onAction="#setResult" prefHeight="68.0" prefWidth="300.0" stylesheets="@style.css" text="결과 보기">
             <font>
                 <Font name="Hancom Gothic Bold" size="30.0" />
             </font>
@@ -42,22 +42,22 @@
                 <Font name="Hancom Gothic Bold" size="18.0" />
             </font>
         </Text>
-      <Text layoutX="44.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="성별 : 남성 (97.10%)" textAlignment="CENTER">
+      <Text fx:id="genderText" layoutX="44.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="성별 : 남성 (97.10%)" textAlignment="CENTER">
          <font>
             <Font name="Hancom Gothic Bold" size="26.0" />
          </font>
       </Text>
-      <Text layoutX="44.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="나이 : 21-25 (43.72%)" textAlignment="CENTER">
+      <Text fx:id="ageText" layoutX="44.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="나이 : 21-25 (43.72%)" textAlignment="CENTER">
          <font>
             <Font name="Hancom Gothic Bold" size="26.0" />
          </font>
       </Text>
-      <Text layoutX="45.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="감정 : 무표정 (23.89%)" textAlignment="CENTER">
+      <Text fx:id="emotionText" layoutX="45.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="감정 : 무표정 (23.89%)" textAlignment="CENTER">
          <font>
             <Font name="Hancom Gothic Bold" size="26.0" />
          </font>
       </Text>
-      <Text layoutX="44.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="자세 : 정면 (99.81%)" textAlignment="CENTER">
+      <Text fx:id="poseText" layoutX="44.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="자세 : 정면 (99.81%)" textAlignment="CENTER">
          <font>
             <Font name="Hancom Gothic Bold" size="26.0" />
          </font>

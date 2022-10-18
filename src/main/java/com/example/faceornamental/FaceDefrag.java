@@ -180,6 +180,10 @@ public class FaceDefrag {
             System.out.println(Arrays.toString(info));
             System.out.println(Arrays.toString(conf));
 
+//            if(info[3].equals("false_face")){
+//                continue;
+//            }
+
             JSONObject getFaceLocate = (JSONObject) getFaceInfo.get("roi");
             long faceStartX = (long) getFaceLocate.get("x");
             long faceStartY = (long) getFaceLocate.get("y");

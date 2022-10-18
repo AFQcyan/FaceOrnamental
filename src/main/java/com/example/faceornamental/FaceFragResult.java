@@ -34,43 +34,47 @@ public class FaceFragResult extends FaceDefrag{
     boolean isResultEnd = false;
 
 
-    String emotionTrans(double conf){
+    String emotionTrans(String conf){
         String per = " ";
-        if(conf <= 20){
-            per = "아주 약간";
+
+        if (conf.equals("angry")){
+            per = "분노";
         }
-        else if(conf <= 40){
-            per = "알아볼만큼";
+        if(conf.equals("disgust")){
+            per = "역겨움";
         }
-        else if(conf <= 60){
-            per = "아주 많이";
+        else if(conf.equals("fear")){
+            per = "공포";
         }
-        else if(conf <= 80){
-            per = "티안나는 닮은꼴일정도로";
-        }
-        else{
-            per = "도플갱어라 해도 모를정도로";
-        }
+//        else if(conf <= 60){
+//            per = "아주 많이";
+//        }
+//        else if(conf <= 80){
+//            per = "티안나는 닮은꼴일정도로";
+//        }
+//        else{
+//            per = "도플갱어라 해도 모를정도로";
+//        }
         return per;
     }
 
     void printFamous(){
         emotionText.setText("감정 : " + faceInfos.get(status)[0] + " (" + faceConfidences.get(status)[0] +"%)");
+        genderText.setText("성별 : " + faceInfos.get(status)[1] + " (" + faceConfidences.get(status)[1] +"%)");
+        ageText.setText("나이 : " + faceInfos.get(status)[2] + " (" + faceConfidences.get(status)[2] +"%)");
+        poseText.setText("자세 : " + faceInfos.get(status)[3] + " (" + faceConfidences.get(status)[3] +"%)");
         countRemain.setText("(" + (status + 1) + " / " + endResult + ")");
-        headerFamousConfidence.setText("확률(" + faceConfidences.get(status)[0] + "%)");
     }
 
     public void setResult(){
         endResult =  faceInfos.size();
         if(status == endResult - 1){
             submitResultBtn.setText("끝내기");
-            showToNext.setText("모든 결과가 산출되었습니다. 끝내기 버튼을 누르면 해당 검사 결과가 자동저장됩니다.");
             printFamous();
             status++;
         }
         else if(status == 0){
             submitResultBtn.setText("다음 결과 보기");
-            showToNext.setText("다음 결과가 남았어요! \n버튼을 눌러 다음 결과를 확인해보세요!");
             printFamous();
             status++;
         }
