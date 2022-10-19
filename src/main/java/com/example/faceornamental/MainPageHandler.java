@@ -49,6 +49,13 @@ public class MainPageHandler{
 
     }
     public void goToLogin(){
-
+        try{
+            Parent nextScene = FXMLLoader.load(getClass().getResource("face-famous.fxml"));
+            Scene scene = new Scene(nextScene);
+            Stage primaryStage = (Stage) recognizeFaceBtn.getScene().getWindow();
+            primaryStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.example.faceornamental;
 import java.sql.*;
 
 public class DBUtil {
-    public static void fetchDB() {
+    public static ResultSet fetchDB() {
         // Connection 객체를 자동완성으로 import할 때는 com.mysql.connection이 아닌
         // java 표준인 java.sql.Connection 클래스를 import해야 한다.
         Connection conn = null;
@@ -34,10 +34,64 @@ public class DBUtil {
 
             rs = stmt.executeQuery(sql);
 
-            rs.next();
-            System.out.println(rs.getString(2));
+            return rs;
 
+        }
+        catch(ClassNotFoundException e){
+            System.out.println("드라이버 로딩 실패");
+        }
+        catch(SQLException e){
+            System.out.println("에러: " + e);
+        }
+        finally{
+            try{
+                if( conn != null && !conn.isClosed()){
+                    conn.close();
+                }
+            }
+            catch( SQLException e){
+                e.printStackTrace();
+            }
+        }
+    }
 
+    public static void registerDB(String userId, String userPw, String regDate, String nowCeleb, String nowGender, String nowAge) {
+        // Connection 객체를 자동완성으로 import할 때는 com.mysql.connection이 아닌
+        // java 표준인 java.sql.Connection 클래스를 import해야 한다.
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try{
+            // 1. 드라이버 로딩
+            // 드라이버 인터페이스를 구현한 클래스를 로딩
+            // mysql, oracle 등 각 벤더사 마다 클래스 이름이 다르다.
+            // mysql은 "com.mysql.jdbc.Driver"이며, 이는 외우는 것이 아니라 구글링하면 된다.
+            // 참고로 이전에 연동했던 jar 파일을 보면 com.mysql.jdbc 패키지에 Driver 라는 클래스가 있다.
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 2. 연결하기
+            // 드라이버 매니저에게 Connection 객체를 달라고 요청한다.
+            // Connection을 얻기 위해 필요한 url 역시, 벤더사마다 다르다.
+            // mysql은 "jdbc:mysql://localhost/사용할db이름" 이다.
+            String url = "jdbc:mysql://localhost/faceornamental";
+
+            // @param  getConnection(url, userName, password);
+            // @return Connection
+            conn = DriverManager.getConnection(url, "root", "");
+
+            conn.setAutoCommit(false);
+            String sql = "INSERT INTO faceUser ('userId', 'userPw', 'userRegDate', 'userNowCeleb', 'userNowGender', 'userNowAge') values(?,?,?,?,?,?)";
+
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+            pstmt.setString(2, userPw);
+            pstmt.setString(3, regDate);
+            pstmt.setString(4, nowCeleb);
+            pstmt.setString(5, nowGender);
+            pstmt.setString(6, nowAge);
+
+            pstmt.executeUpdate();
 
         }
         catch(ClassNotFoundException e){

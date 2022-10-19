@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="673d33c0-dc67-4208-acdb-f40c6e4d5b2f" name="변경" comment="변경">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/DBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/LoginView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/RegisterView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/login-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/register-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FaceOrnamental.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FaceOrnamental.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/APIExamFace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/APIExamFace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/DBUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/MainPageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/MainPageHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +22,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -40,6 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/example/faceornamental" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/mysql-connector-java-8.0.20.jar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -49,7 +60,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.APIExamFace">
+  <component name="RunManager" selected="Application.MainPage">
     <configuration name="APIExamFace" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.faceornamental.APIExamFace" />
       <module name="FaceOrnamental" />
@@ -99,9 +110,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainPage" />
         <item itemvalue="Application.APIExamFace" />
         <item itemvalue="Application.DBUtil" />
-        <item itemvalue="Application.MainPage" />
         <item itemvalue="JUnit.FaceOrnamental의 전부" />
       </list>
     </recent_temporary>
@@ -117,6 +128,7 @@
       <workItem from="1666063108523" duration="2105000" />
       <workItem from="1666081524322" duration="2935000" />
       <workItem from="1666087606307" duration="6509000" />
+      <workItem from="1666182383427" duration="7258000" />
     </task>
     <servers />
   </component>
