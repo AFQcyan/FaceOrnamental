@@ -5,20 +5,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class
 MainPageHandler{
+
+    LoginView lgv = new LoginView();
     @FXML
     private Text mainText;
     @FXML
-    private Button loginRegisterBtn;
+    Button loginRegisterBtn;
     @FXML
     private Button recognizeFaceBtn;
     @FXML
@@ -50,13 +55,33 @@ MainPageHandler{
 
     }
     public void goToLogin(){
-        try{
-            Parent nextScene = FXMLLoader.load(getClass().getResource("login-view.fxml"));
-            Scene scene = new Scene(nextScene);
-            Stage primaryStage = (Stage) recognizeFaceBtn.getScene().getWindow();
-            primaryStage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(LoginView.isLogin){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText("이미 로그인됨");
+            alert.setContentText("이미 " + LoginView.loginUserid + " 님으로 로그인 되어있습니다. 로그아웃 하시겠습니까?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                LoginView.isLogin = false;
+                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("");
+                alert.setHeaderText("로그아웃됨");
+                alert.setContentText("성공적으로 로그아웃 되었습니다.");
+                alert.showAndWait();
+            }
+            else{
+            }
+
+        }
+        else{
+            try {
+                Parent nextScene = FXMLLoader.load(getClass().getResource("login-view.fxml"));
+                Scene scene = new Scene(nextScene);
+                Stage primaryStage = (Stage) recognizeFaceBtn.getScene().getWindow();
+                primaryStage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

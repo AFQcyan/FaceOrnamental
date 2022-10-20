@@ -16,11 +16,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class LoginView {
+public class LoginView{
 
     DBUtil db = new DBUtil();
 
-    public static String loginUserUid;
+    public static String loginUserid;
 
     static boolean isLogin = false;
 
@@ -35,7 +35,7 @@ public class LoginView {
 
     public void goToRegister(){
         try{
-            Parent nextScene = FXMLLoader.load(getClass().getResource("face-famous.fxml"));
+            Parent nextScene = FXMLLoader.load(getClass().getResource("register-view.fxml"));
             Scene scene = new Scene(nextScene);
             Stage primaryStage = (Stage) goToRegisterBtn.getScene().getWindow();
             primaryStage.setScene(scene);
@@ -67,7 +67,9 @@ public class LoginView {
                 alert.setHeaderText("로그인 성공");
                 alert.setContentText(idInput.getText() + "님의 로그인이 정상적으로 완료 되었습니다.");
                 alert.showAndWait();
-                loginUserUid = DBUtil.fetchDB("uid").get(i);
+                loginUserid = DBUtil.fetchDB("userId").get(i);
+
+
                try{
                    Parent nextScene = FXMLLoader.load(getClass().getResource("main-page.fxml"));
                    Scene scene = new Scene(nextScene);

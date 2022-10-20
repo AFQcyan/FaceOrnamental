@@ -90,17 +90,24 @@ public class DBUtil {
             conn = DriverManager.getConnection(url, "root", "");
 
             conn.setAutoCommit(false);
-            String sql = "INSERT INTO faceUser ('userId', 'userPw', 'userRegDate', 'userNowCeleb', 'userNowGender', 'userNowAge') values(?,?,?,?,?,?)";
+            String sql = "INSERT INTO faceuser (userId, userPw, userRegDate) VALUES (?,?,?)";
 
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, userId);
-            pstmt.setString(2, userPw);
-            pstmt.setString(3, regDate);
-            pstmt.setString(4, nowCeleb);
-            pstmt.setString(5, nowGender);
-            pstmt.setString(6, nowAge);
+            try{
 
-            pstmt.executeUpdate();
+                pstmt = conn.prepareStatement(sql);
+                System.out.println(userId);
+                System.out.println(userPw);
+                pstmt.setString(1, userId);
+                pstmt.setString(2, userPw);
+                pstmt.setString(3, regDate);
+
+                pstmt.executeUpdate();
+
+                System.out.println("삽입 센코!");
+            }
+            catch (Exception e){
+                System.out.println("삽입 실패 ㅠ");
+            }
 
         }
         catch(ClassNotFoundException e){
