@@ -13,7 +13,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainPageHandler{
+public class
+MainPageHandler{
     @FXML
     private Text mainText;
     @FXML
@@ -50,7 +51,7 @@ public class MainPageHandler{
     }
     public void goToLogin(){
         try{
-            Parent nextScene = FXMLLoader.load(getClass().getResource("face-famous.fxml"));
+            Parent nextScene = FXMLLoader.load(getClass().getResource("login-view.fxml"));
             Scene scene = new Scene(nextScene);
             Stage primaryStage = (Stage) recognizeFaceBtn.getScene().getWindow();
             primaryStage.setScene(scene);

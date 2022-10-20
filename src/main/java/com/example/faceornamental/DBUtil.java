@@ -1,11 +1,16 @@
 package com.example.faceornamental;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DBUtil {
-    public static ResultSet fetchDB() {
+
+    static ArrayList<String> results = new ArrayList<>();
+
+    public static ArrayList<String> fetchDB(String columnName) {
         // Connection 객체를 자동완성으로 import할 때는 com.mysql.connection이 아닌
         // java 표준인 java.sql.Connection 클래스를 import해야 한다.
+        results = new ArrayList<>();
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
@@ -30,11 +35,14 @@ public class DBUtil {
 
             stmt = conn.createStatement();
 
-            String sql = "SELECT * FROM faceUser";
+            String sql = "SELECT " + columnName +" FROM faceUser";
 
             rs = stmt.executeQuery(sql);
 
-            return rs;
+            while(rs.next()){
+                String dump = rs.getString(columnName);
+                results.add(dump);
+            }
 
         }
         catch(ClassNotFoundException e){
@@ -53,6 +61,7 @@ public class DBUtil {
                 e.printStackTrace();
             }
         }
+        return results;
     }
 
     public static void registerDB(String userId, String userPw, String regDate, String nowCeleb, String nowGender, String nowAge) {
