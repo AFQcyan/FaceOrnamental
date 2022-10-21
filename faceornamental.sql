@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 22-10-18 14:15
--- 서버 버전: 10.4.24-MariaDB
--- PHP 버전: 8.1.6
+-- 생성 시간: 22-10-21 05:59
+-- 서버 버전: 10.4.21-MariaDB
+-- PHP 버전: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,12 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `faceuser` (
   `uid` int(11) NOT NULL,
-  `userId` varchar(12) COLLATE utf8mb4_bin NOT NULL,
-  `userPw` varchar(12) COLLATE utf8mb4_bin NOT NULL,
+  `userId` varchar(20) COLLATE utf8mb4_bin NOT NULL,
+  `userPw` varchar(20) COLLATE utf8mb4_bin NOT NULL,
   `userRegDate` date NOT NULL,
-  `userNowCeleb` varchar(20) COLLATE utf8mb4_bin NOT NULL,
-  `userNowGender` varchar(20) COLLATE utf8mb4_bin NOT NULL,
-  `userNowAge` varchar(20) COLLATE utf8mb4_bin NOT NULL
+  `userNowCeleb` varchar(20) COLLATE utf8mb4_bin DEFAULT NULL,
+  `userNowGender` varchar(20) COLLATE utf8mb4_bin DEFAULT NULL,
+  `userNowAge` varchar(20) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -42,7 +42,11 @@ CREATE TABLE `faceuser` (
 --
 
 INSERT INTO `faceuser` (`uid`, `userId`, `userPw`, `userRegDate`, `userNowCeleb`, `userNowGender`, `userNowAge`) VALUES
-(1, 'admin', 'pass', '2022-01-01', '설현', '남자', '14');
+(1, 'admin', 'pass', '2022-01-01', '설현', '남자', '14'),
+(9, 'aduino', 'aduino', '2022-10-21', NULL, NULL, NULL),
+(12, 'adino', 'adino', '2022-10-21', NULL, NULL, NULL),
+(15, 'aderader', 'aderader', '2022-10-21', NULL, NULL, NULL),
+(17, 'AFQcyan', 'eQu7Rhy65', '2022-10-21', NULL, NULL, NULL);
 
 --
 -- 덤프된 테이블의 인덱스
@@ -62,7 +66,7 @@ ALTER TABLE `faceuser`
 -- 테이블의 AUTO_INCREMENT `faceuser`
 --
 ALTER TABLE `faceuser`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
