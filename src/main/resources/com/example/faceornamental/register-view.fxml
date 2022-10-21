@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.faceornamental.RegisterView">
+<AnchorPane prefHeight="800.0" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.faceornamental.RegisterView">
    <children>
       <Pane layoutX="100.0" layoutY="326.0" prefHeight="422.0" prefWidth="311.0">
          <children>
@@ -37,7 +37,7 @@
             <String fx:value="buttonUI" />
          </styleClass>
       </Pane>
-      <Text fx:id="mainText" layoutX="106.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="회원가입">
+      <Text fx:id="mainText" layoutX="106.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="회원가입">
          <font>
             <Font name="Malgun Gothic Bold" size="72.0" />
          </font>
@@ -52,6 +52,15 @@
             <Font name="NanumGothicBold" size="36.0" />
          </font>
       </Text>
+      <Button fx:id="backButton" layoutX="20.0" layoutY="17.0" mnemonicParsing="false" onAction="#backToPrevious" prefHeight="17.0" prefWidth="134.0" stylesheets="@style.css" text="뒤로 가기">
+         <font>
+            <Font name="Hancom Gothic Bold" size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="face-recognize-btn" />
+            <String fx:value="face-btn" />
+         </styleClass>
+      </Button>
    </children>
    <styleClass>
       <String fx:value="main-page" />

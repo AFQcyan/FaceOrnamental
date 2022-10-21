@@ -14,6 +14,7 @@ import java.util.Objects;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -106,6 +107,7 @@ public class FaceDefrag {
                     response.append(inputLine);
                 }
                 br.close();
+                printInfo(response.toString());
                 try{
                     Parent nextScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("face-frag-result.fxml")));
                     Scene scene = new Scene(nextScene);
@@ -114,7 +116,6 @@ public class FaceDefrag {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                printInfo(response.toString());
 
             } else {
                 System.out.println("error !!!");
@@ -138,112 +139,110 @@ public class FaceDefrag {
         JSONArray getFaces = (JSONArray) jsonObject.get("faces");
         faceLength = getFaces.size();
         //faces의 배열을 추출
+        if(faceLength > 0){
+            for (int i = 0; i < faceLength; i++) {
+                info = new String[4];
+                conf = new double[4];
 
-        for (int i = 0; i < faceLength; i++) {
-            info = new String[4];
-            conf = new double[4];
-            faceX = new long[5];
-            faceY = new long[5];
+                System.out.println(faceLength);
+                JSONObject getFaceInfo = (JSONObject) getFaces.get(i);
 
-            System.out.println(faceLength);
-            JSONObject getFaceInfo = (JSONObject) getFaces.get(i);
+                JSONObject getEmotion = (JSONObject) getFaceInfo.get("emotion");
+                String emotion = (String) getEmotion.get("value");
+                Double getEmotionConfidence = (Double) getEmotion.get("confidence");
+                Double emotionConfidence = (double) Math.round(getEmotionConfidence * 10000) / 100;
+                info[0] = emotion;
+                conf[0] = emotionConfidence;
 
-            JSONObject getEmotion = (JSONObject) getFaceInfo.get("emotion");
-            String emotion = (String) getEmotion.get("value");
-            Double getEmotionConfidence = (Double) getEmotion.get("confidence");
-            Double emotionConfidence = (double) Math.round(getEmotionConfidence * 10000) / 100;
-            info[0] = emotion;
-            conf[0] = emotionConfidence;
+                JSONObject getGender = (JSONObject) getFaceInfo.get("gender");
+                String gender = (String) getGender.get("value");
+                Double getGenderConfidence = (Double) getGender.get("confidence");
+                Double genderConfidence = (double) Math.round(getGenderConfidence * 10000) / 100;
+                info[1] = gender;
+                conf[1] = genderConfidence;
 
-            JSONObject getGender = (JSONObject) getFaceInfo.get("gender");
-            String gender = (String) getGender.get("value");
-            Double getGenderConfidence = (Double) getGender.get("confidence");
-            Double genderConfidence = (double) Math.round(getGenderConfidence * 10000) / 100;
-            info[1] = gender;
-            conf[1] = genderConfidence;
+                JSONObject getAge = (JSONObject) getFaceInfo.get("age");
+                String age = (String) getAge.get("value");
+                Double getAgeConfidence = (Double) getAge.get("confidence");
+                Double ageConfidence = (double) Math.round(getAgeConfidence * 10000) / 100;
+                info[2] = age;
+                conf[2] = ageConfidence;
 
-            JSONObject getAge = (JSONObject) getFaceInfo.get("age");
-            String age = (String) getAge.get("value");
-            Double getAgeConfidence = (Double) getAge.get("confidence");
-            Double ageConfidence = (double) Math.round(getAgeConfidence * 10000) / 100;
-            info[2] = age;
-            conf[2] = ageConfidence;
+                JSONObject getPose = (JSONObject) getFaceInfo.get("pose");
+                String pose = (String) getPose.get("value");
+                Double getPoseConfidence = (Double) getPose.get("confidence");
+                Double poseConfidence = (double) Math.round(getPoseConfidence * 10000) / 100;
+                info[3] = pose;
+                conf[3] = poseConfidence;
 
-            JSONObject getPose = (JSONObject) getFaceInfo.get("pose");
-            String pose = (String) getPose.get("value");
-            Double getPoseConfidence = (Double) getPose.get("confidence");
-            Double poseConfidence = (double) Math.round(getPoseConfidence * 10000) / 100;
-            info[3] = pose;
-            conf[3] = poseConfidence;
-
-            //얼굴좌표 불러오기
-            System.out.println(Arrays.toString(info));
-            System.out.println(Arrays.toString(conf));
+                //얼굴좌표 불러오기
+                System.out.println(Arrays.toString(info));
+                System.out.println(Arrays.toString(conf));
 
 //            if(info[3].equals("false_face")){
 //                continue;
 //            }
 
-            JSONObject getFaceLocate = (JSONObject) getFaceInfo.get("roi");
-            long faceStartX = (long) getFaceLocate.get("x");
-            long faceStartY = (long) getFaceLocate.get("y");
-            long faceWidth = (long) getFaceLocate.get("width");
-            long faceHeight = (long) getFaceLocate.get("height");
-            long faceEndX = faceStartX + faceWidth;
-            long faceEndY = faceStartY + faceHeight;
+                JSONObject getFaceLocate = (JSONObject) getFaceInfo.get("roi");
+                long faceStartX = (long) getFaceLocate.get("x");
+                long faceStartY = (long) getFaceLocate.get("y");
+                long faceWidth = (long) getFaceLocate.get("width");
+                long faceHeight = (long) getFaceLocate.get("height");
+                long faceEndX = faceStartX + faceWidth;
+                long faceEndY = faceStartY + faceHeight;
 
-            JSONObject getElementLocate = (JSONObject) getFaceInfo.get("landmark");
+                JSONObject getElementLocate = (JSONObject) getFaceInfo.get("landmark");
 
-            JSONObject getLeftEye = (JSONObject) getElementLocate.get("leftEye");
-            long leftEyeX = (long) getLeftEye.get("x");
-            long leftEyeY = (long) getLeftEye.get("y");
-            long relativeLeftEyeX = leftEyeX - faceStartX;
-            long relativeLeftEyeY = leftEyeY - faceStartY;
-            faceX[0] = relativeLeftEyeX;
-            faceY[0] = relativeLeftEyeY;
-
-
-            JSONObject getRightEye = (JSONObject) getElementLocate.get("rightEye");
-            long rightEyeX = (long) getRightEye.get("x");
-            long rightEyeY = (long) getRightEye.get("y");
-            long relativeRightEyeX = rightEyeX - faceStartX;
-            long relativeRightEyeY = rightEyeY - faceStartY;
-            faceX[1] = relativeRightEyeX;
-            faceY[1] = relativeRightEyeY;
-
-            JSONObject getNose = (JSONObject) getElementLocate.get("nose");
-            long noseX = (long) getNose.get("x");
-            long noseY = (long) getNose.get("y");
-            long relativeNoseX = noseX - faceStartX;
-            long relativeNoseY = noseY - faceStartY;
-            faceX[2] = relativeNoseX;
-            faceY[2] = relativeNoseY;
-
-            JSONObject getLeftMouth = (JSONObject) getElementLocate.get("leftMouth");
-            long leftMouthX = (long) getLeftMouth.get("x");
-            long leftMouthY = (long) getLeftMouth.get("y");
-            long relativeLeftMouthX = leftMouthX - faceStartX;
-            long relativeLeftMouthY = leftMouthY - faceStartY;
-            faceX[3] = relativeLeftMouthX;
-            faceY[3] = relativeLeftMouthY;
-
-            JSONObject getRightMouth = (JSONObject) getElementLocate.get("rightMouth");
-            long rightMouthX = (long) getRightMouth.get("x");
-            long rightMouthY = (long) getRightMouth.get("y");
-            long relativeRightMouthX = rightMouthX - faceStartX;
-            long relativeRightMouthY = rightMouthY - faceStartY;
-            faceX[4] = relativeRightMouthX;
-            faceY[4] = relativeRightMouthY;
-
-            System.out.println(Arrays.toString(faceX));
-            System.out.println(Arrays.toString(faceY));
+                JSONObject getLeftEye = (JSONObject) getElementLocate.get("leftEye");
+                long leftEyeX = (long) getLeftEye.get("x");
+                long leftEyeY = (long) getLeftEye.get("y");
+                long relativeLeftEyeX = leftEyeX - faceStartX;
+                long relativeLeftEyeY = leftEyeY - faceStartY;
+                faceX[0] = relativeLeftEyeX;
+                faceY[0] = relativeLeftEyeY;
 
 
-            faceInfos.add(info);
-            faceConfidences.add(conf);
-            faceXs.add(faceX);
-            faceYs.add(faceY);
+                JSONObject getRightEye = (JSONObject) getElementLocate.get("rightEye");
+                long rightEyeX = (long) getRightEye.get("x");
+                long rightEyeY = (long) getRightEye.get("y");
+                long relativeRightEyeX = rightEyeX - faceStartX;
+                long relativeRightEyeY = rightEyeY - faceStartY;
+                faceX[1] = relativeRightEyeX;
+                faceY[1] = relativeRightEyeY;
+
+                JSONObject getNose = (JSONObject) getElementLocate.get("nose");
+                long noseX = (long) getNose.get("x");
+                long noseY = (long) getNose.get("y");
+                long relativeNoseX = noseX - faceStartX;
+                long relativeNoseY = noseY - faceStartY;
+                faceX[2] = relativeNoseX;
+                faceY[2] = relativeNoseY;
+
+                System.out.println(Arrays.toString(faceX));
+                System.out.println(Arrays.toString(faceY));
+
+
+                faceInfos.add(info);
+                faceConfidences.add(conf);
+            }
         }
+        else{
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText("얼굴 미감지!");
+            alert.setContentText("검사하고자 하는 사진에서 얼굴이 감지되지 않았습니다. 다른 사진을 시도해보세요.");
+            alert.showAndWait();
+
+            try{
+                Parent nextScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("face-reconize.fxml")));
+                Scene scene = new Scene(nextScene);
+                Stage primaryStage = (Stage) getSetGo.getScene().getWindow();
+                primaryStage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
 
 

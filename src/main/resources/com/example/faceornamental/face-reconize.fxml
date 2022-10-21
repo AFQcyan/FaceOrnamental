@@ -47,5 +47,14 @@
             <String fx:value="face-btn" />
          </styleClass>
       </Button>
+      <Button fx:id="backButton" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" onAction="#backToPrevious" prefHeight="17.0" prefWidth="134.0" stylesheets="@style.css" text="뒤로 가기">
+         <font>
+            <Font name="Hancom Gothic Bold" size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="face-recognize-btn" />
+            <String fx:value="face-btn" />
+         </styleClass>
+      </Button>
    </children>
 </AnchorPane>

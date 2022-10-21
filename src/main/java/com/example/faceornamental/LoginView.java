@@ -32,6 +32,19 @@ public class LoginView{
     private Button goToRegisterBtn;
     @FXML
     private Button loginBtn;
+    @FXML
+    private Button backButton;
+
+    public void backToPrevious(){
+        try{
+            Parent nextScene = FXMLLoader.load(getClass().getResource("main-page.fxml"));
+            Scene scene = new Scene(nextScene);
+            Stage primaryStage = (Stage) backButton.getScene().getWindow();
+            primaryStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void goToRegister(){
         try{

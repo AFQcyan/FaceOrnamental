@@ -1,5 +1,12 @@
 package com.example.faceornamental;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -89,11 +96,10 @@ public class DBUtil {
             // @return Connection
             conn = DriverManager.getConnection(url, "root", "");
 
-            conn.setAutoCommit(false);
-            String sql = "INSERT INTO faceuser (userId, userPw, userRegDate) VALUES (?,?,?)";
+            String sql = "INSERT INTO faceuser (userId, userPw, userRegDate, userNowCeleb, userNowGender, userNowAge) VALUES (?,?,?,null,null,null)";
 
             try{
-
+                System.out.println(conn.prepareStatement(sql));
                 pstmt = conn.prepareStatement(sql);
                 System.out.println(userId);
                 System.out.println(userPw);
@@ -101,11 +107,22 @@ public class DBUtil {
                 pstmt.setString(2, userPw);
                 pstmt.setString(3, regDate);
 
+                System.out.println(pstmt);
+
                 pstmt.executeUpdate();
 
-                System.out.println("삽입 센코!");
+                System.out.println("삽입 성공!");
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("환영합니다. "+ userId + " 님 ");
+                alert.setHeaderText("가입 성공");
+                alert.setContentText("정상적으로 가입되었습니다. 메인으로 돌아가 로그인 해주세요.");
+                alert.showAndWait();
+
+
             }
             catch (Exception e){
+                e.printStackTrace();
                 System.out.println("삽입 실패 ㅠ");
             }
 

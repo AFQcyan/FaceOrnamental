@@ -34,32 +34,41 @@ public class FaceFragResult extends FaceDefrag{
     boolean isResultEnd = false;
 
 
-    String emotionTrans(String conf){
+    String transEmoji(String emoji){
         String per = " ";
-
-        if (conf.equals("angry")){
-            per = "분노";
+        if(emoji.equals("angry")){
+            per = "화남";
         }
-        if(conf.equals("disgust")){
+        else if(emoji.equals("disgust")){
             per = "역겨움";
         }
-        else if(conf.equals("fear")){
-            per = "공포";
+        else if(emoji.equals("fear")){
+            per = "공포를 느낌";
         }
-//        else if(conf <= 60){
-//            per = "아주 많이";
-//        }
-//        else if(conf <= 80){
-//            per = "티안나는 닮은꼴일정도로";
-//        }
-//        else{
-//            per = "도플갱어라 해도 모를정도로";
-//        }
+        else if(emoji.equals("laugh")){
+            per = "큰 웃음";
+        }
+        else if(emoji.equals("neutral")){
+            per = "무표정";
+        }
+        else if(emoji.equals("sad")){
+            per = "슬픔";
+        }
+        else if(emoji.equals("surprise")){
+            per = "놀람";
+        }
+        else if(emoji.equals("smile")){
+            per = "미소 지음";
+        }
+        else if(emoji.equals("talking")){
+            per = "대화중";
+        }
         return per;
     }
 
+
     void printFamous(){
-        emotionText.setText("감정 : " + faceInfos.get(status)[0] + " (" + faceConfidences.get(status)[0] +"%)");
+        emotionText.setText("감정 : " + transEmoji(faceInfos.get(status)[0]) + " (" + faceConfidences.get(status)[0] +"%)");
         genderText.setText("성별 : " + faceInfos.get(status)[1] + " (" + faceConfidences.get(status)[1] +"%)");
         ageText.setText("나이 : " + faceInfos.get(status)[2] + " (" + faceConfidences.get(status)[2] +"%)");
         poseText.setText("자세 : " + faceInfos.get(status)[3] + " (" + faceConfidences.get(status)[3] +"%)");

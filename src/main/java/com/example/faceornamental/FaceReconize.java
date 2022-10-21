@@ -28,10 +28,24 @@ public class FaceReconize {
     private Button submittingButton;
     @FXML
     private Button photoReSetButton;
+    @FXML
+    private Button backButton;
+
+    public void backToPrevious(){
+        try{
+            Parent nextScene = FXMLLoader.load(getClass().getResource("main-page.fxml"));
+            Scene scene = new Scene(nextScene);
+            Stage primaryStage = (Stage) backButton.getScene().getWindow();
+            primaryStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private Boolean isPhotoSet = false;
 
     static String sendToNext;
+
 
     public void changeToVertical() {
         showImage.setFitWidth(300);

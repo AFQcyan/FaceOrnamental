@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="500.0" styleClass="face-background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.faceornamental.FaceFamous">
+<AnchorPane prefHeight="800.0" prefWidth="500.0" styleClass="face-background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.faceornamental.FaceFamous">
    <children>
       <Button fx:id="verticalButton" layoutX="71.0" layoutY="601.0" mnemonicParsing="false" onAction="#changeToVertical" prefHeight="52.0" prefWidth="154.0" stylesheets="@style.css" text="세로 사진">
          <font>
@@ -43,6 +43,15 @@
          </font>
       </Label>
       <Button fx:id="photoReSetButton" layoutX="337.0" layoutY="698.0" mnemonicParsing="false" onAction="#photoReSet" prefHeight="68.0" prefWidth="143.0" stylesheets="@style.css" text="사진 재설정">
+         <font>
+            <Font name="Hancom Gothic Bold" size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="face-recognize-btn" />
+            <String fx:value="face-btn" />
+         </styleClass>
+      </Button>
+      <Button fx:id="backButton" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" onAction="#backToPrevious" prefHeight="17.0" prefWidth="134.0" stylesheets="@style.css" text="뒤로 가기">
          <font>
             <Font name="Hancom Gothic Bold" size="20.0" />
          </font>

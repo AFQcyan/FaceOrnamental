@@ -1,9 +1,15 @@
 package com.example.faceornamental;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
@@ -18,6 +24,19 @@ public class RegisterView {
     private TextField pwInput;
     @FXML
     private Button registerBtn;
+    @FXML
+    private Button backButton;
+
+    public void backToPrevious(){
+        try{
+            Parent nextScene = FXMLLoader.load(getClass().getResource("main-page.fxml"));
+            Scene scene = new Scene(nextScene);
+            Stage primaryStage = (Stage) backButton.getScene().getWindow();
+            primaryStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void tryRegister(){
         boolean isDouble = false;
