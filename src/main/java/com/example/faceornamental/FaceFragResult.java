@@ -66,12 +66,52 @@ public class FaceFragResult extends FaceDefrag{
         return per;
     }
 
+    String transGender(String emoji){
+        String per = " ";
+        if(emoji.equals("male")){
+            per = "남성";
+        }
+        else if(emoji.equals("female")){
+            per = "여성";
+        }
+        else if(emoji.equals("child")){
+            per = "어린이";
+        }
+        return per;
+    }
+
+    String transPose(String emoji){
+        String per = " ";
+        if(emoji.equals("part_face")){
+            per = "일부분의 얼굴";
+        }
+        else if(emoji.equals("false_face")){
+            per = "사람이 아님";
+        }
+        else if(emoji.equals("sunglasses")){
+            per = "선글라스를 낌";
+        }
+        else if(emoji.equals("frontal_face")){
+            per = "정면";
+        }
+        else if(emoji.equals("left_face")){
+            per = "왼쪽 얼굴";
+        }
+        else if(emoji.equals("right_face")){
+            per = "오른쪽 얼굴";
+        }
+        else if(emoji.equals("rotate_face")){
+            per = "돌아가는 얼굴";
+        }
+        return per;
+    }
+
 
     void printFamous(){
         emotionText.setText("감정 : " + transEmoji(faceInfos.get(status)[0]) + " (" + faceConfidences.get(status)[0] +"%)");
-        genderText.setText("성별 : " + faceInfos.get(status)[1] + " (" + faceConfidences.get(status)[1] +"%)");
+        genderText.setText("성별 : " + transGender(faceInfos.get(status)[1]) + " (" + faceConfidences.get(status)[1] +"%)");
         ageText.setText("나이 : " + faceInfos.get(status)[2] + " (" + faceConfidences.get(status)[2] +"%)");
-        poseText.setText("자세 : " + faceInfos.get(status)[3] + " (" + faceConfidences.get(status)[3] +"%)");
+        poseText.setText("자세 : " + transPose(faceInfos.get(status)[3]) + " (" + faceConfidences.get(status)[3] +"%)");
         countRemain.setText("(" + (status + 1) + " / " + endResult + ")");
     }
 

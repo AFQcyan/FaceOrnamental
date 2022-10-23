@@ -8,10 +8,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -93,6 +95,7 @@ public class FaceCelebFrag {
                     response.append(inputLine);
                 }
                 br.close();
+                printInfo(response.toString());
                 try{
                     Parent nextScene = FXMLLoader.load(getClass().getResource("face-show-famous-result.fxml"));
                     Scene scene = new Scene(nextScene);
@@ -101,7 +104,6 @@ public class FaceCelebFrag {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                printInfo(response.toString());
 
             } else {
                 System.out.println("error !!!");
@@ -126,14 +128,32 @@ public class FaceCelebFrag {
         JSONArray getFaces = (JSONArray) jsonObject.get("faces");
         faceLength = getFaces.size();
         System.out.println(faceLength);
-        for (int i = 0; i < faceLength; i++) {
-            JSONObject getFaceInfo = (JSONObject) getFaces.get(i);
-            JSONObject getCeleb = (JSONObject) getFaceInfo.get("celebrity");
+        if(faceLength > 0){
+            for (int i = 0; i < faceLength; i++) {
+                JSONObject getFaceInfo = (JSONObject) getFaces.get(i);
+                JSONObject getCeleb = (JSONObject) getFaceInfo.get("celebrity");
 
-            getFamous.add((String) getCeleb.get("value"));
-            System.out.println();
-            Double getFamousConfidence = (Double) getCeleb.get("confidence");
-            famousConfidence.add((double) Math.round(getFamousConfidence * 1000000) / 10000);
+                getFamous.add((String) getCeleb.get("value"));
+                System.out.println();
+                Double getFamousConfidence = (Double) getCeleb.get("confidence");
+                famousConfidence.add((double) Math.round(getFamousConfidence * 1000000) / 10000);
+            }
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText("얼굴 미감지!");
+            alert.setContentText("검사하고자 하는 사진에서 얼굴이 감지되지 않았습니다. 다른 사진을 시도해보세요.");
+            alert.showAndWait();
+
+            try {
+                Parent nextScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("face-famous.fxml")));
+                Scene scene = new Scene(nextScene);
+                Stage primaryStage = (Stage) getSetGo.getScene().getWindow();
+                primaryStage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

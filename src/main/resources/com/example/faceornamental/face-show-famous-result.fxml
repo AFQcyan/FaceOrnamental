@@ -33,14 +33,14 @@
             <Font name="NanumGothic" size="26.0" />
          </font>
       </Text>
-      <Text fx:id="showToNext" layoutX="113.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="279.03997802734375">
+      <Text fx:id="showToNext" layoutX="113.0" layoutY="514.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="279.03997802734375">
          <font>
-            <Font name="NanumGothic" size="26.0" />
+            <Font name="NanumGothic" size="22.0" />
          </font>
       </Text>
-      <Text fx:id="explainFamous" layoutX="7.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="485.03997802734375">
+      <Text fx:id="explainFamous" layoutX="7.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="485.03997802734375">
          <font>
-            <Font name="NanumGothic" size="26.0" />
+            <Font name="NanumGothic" size="22.0" />
          </font>
       </Text>
       <Button fx:id="submitResultBtn" layoutX="101.0" layoutY="681.0" mnemonicParsing="false" onAction="#setResult" prefHeight="68.0" prefWidth="300.0" stylesheets="@style.css" text="결과 보기">

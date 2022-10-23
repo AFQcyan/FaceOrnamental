@@ -55,6 +55,13 @@ public class RegisterView {
             alert.setContentText("Id 와 패스워드는 4글자 이상이어야 합니다.");
             alert.showAndWait();
         }
+        else if(testId.length() > 20 || testPw.length() > 20){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText("글자수 초과");
+            alert.setContentText("Id 와 패스워드는 20글자 이하이어야 합니다.");
+            alert.showAndWait();
+        }
         else if(isDouble){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("");
