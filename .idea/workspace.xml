@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="673d33c0-dc67-4208-acdb-f40c6e4d5b2f" name="변경" comment="변경">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceCelebFrag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceCelebFrag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceFragResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceFragResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/RegisterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-show-famous-result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-show-famous-result.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +125,7 @@
       <workItem from="1666272273262" duration="12366000" />
       <workItem from="1666318259898" duration="6472000" />
       <workItem from="1666489046365" duration="7616000" />
-      <workItem from="1666517431117" duration="4113000" />
+      <workItem from="1666517431117" duration="5230000" />
     </task>
     <servers />
   </component>
