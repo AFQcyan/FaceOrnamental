@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="673d33c0-dc67-4208-acdb-f40c6e4d5b2f" name="변경" comment="변경" />
+    <list default="true" id="673d33c0-dc67-4208-acdb-f40c6e4d5b2f" name="변경" comment="변경">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceDefrag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceDefrag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceShowFamousResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceShowFamousResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/MainPageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/MainPageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-celeb-frag.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-celeb-frag.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-defrag.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-defrag.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-famous.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-famous.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-frag-result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-frag-result.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-reconize.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-reconize.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-show-famous-result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-show-famous-result.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/main-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/main-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/register-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/register-view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +68,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="애플리케이션.MainPage">
+  <component name="RunManager" selected="Application.MainPage">
     <configuration name="APIExamFace" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.faceornamental.APIExamFace" />
       <module name="FaceOrnamental" />
@@ -102,7 +118,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.MainPage" />
+        <item itemvalue="Application.MainPage" />
         <item itemvalue="JUnit.FaceOrnamental의 전부" />
       </list>
     </recent_temporary>
@@ -122,6 +138,7 @@
       <workItem from="1666231850177" duration="4475000" />
       <workItem from="1666272273262" duration="12366000" />
       <workItem from="1666318259898" duration="6472000" />
+      <workItem from="1666489046365" duration="7376000" />
     </task>
     <servers />
   </component>
@@ -138,7 +155,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

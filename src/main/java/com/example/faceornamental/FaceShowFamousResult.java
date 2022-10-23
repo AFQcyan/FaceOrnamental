@@ -65,7 +65,7 @@ public class FaceShowFamousResult extends FaceCelebFrag{
         endResult =  getFamous.size();
         if(status == endResult - 1){
             submitResultBtn.setText("끝내기");
-        showToNext.setText("모든 결과가 산출되었습니다. 끝내기 버튼을 누르면 해당 검사 결과가 자동저장됩니다.");
+        showToNext.setText("모든 결과가 산출되었습니다. 끝내기 버튼을 누르면 초기화면으로 돌아갑니다.");
         printFamous();
         status++;
         }

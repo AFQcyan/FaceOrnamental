@@ -8,7 +8,7 @@
    <children>
       <Button fx:id="getSetGo" layoutX="134.0" layoutY="349.0" mnemonicParsing="false" onAction="#faceDefrag" styleClass="face-btn" stylesheets="@style.css" text="결과 확인!">
          <font>
-            <Font name="Hancom Gothic Bold" size="40.0" />
+            <Font name="NanumGothicBold" size="40.0" />
          </font>
       </Button>
    </children>

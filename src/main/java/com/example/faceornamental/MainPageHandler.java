@@ -51,9 +51,6 @@ MainPageHandler{
             e.printStackTrace();
         }
     }
-    public void goToProfile(){
-
-    }
     public void goToLogin(){
         if(LoginView.isLogin){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

@@ -8,29 +8,19 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="500.0" styleClass="face-background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.faceornamental.FaceFragResult">
     <children>
-        <Text layoutX="16.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="당신의 얼굴상은...">
+        <Text layoutX="78.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="당신의 얼굴 분석 결과입니다.">
             <font>
-                <Font name="Hancom Gothic Bold" size="26.0" />
-            </font>
-        </Text>
-        <Text fx:id="headerFaceReco" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="???" textAlignment="CENTER" wrappingWidth="500.0">
-            <font>
-                <Font name="Hancom Gothic Bold" size="56.0" />
-            </font>
-        </Text>
-        <Text layoutX="382.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="입니다!">
-            <font>
-                <Font name="Hancom Gothic Bold" size="26.0" />
+                <Font name="NanumGothicBold" size="28.0" />
             </font>
         </Text>
         <Text layoutX="28.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!! 사진에 2명 이상의 얼굴이 포함된 경우, 오른쪽에 있는 얼굴부터 차례로 분석합니다." wrappingWidth="448.919921875">
             <font>
-                <Font name="Hancom Gothic Bold" size="18.0" />
+                <Font name="NanumGothic" size="18.0" />
             </font>
         </Text>
         <Button fx:id="submitResultBtn" layoutX="101.0" layoutY="681.0" mnemonicParsing="false" onAction="#setResult" prefHeight="68.0" prefWidth="300.0" stylesheets="@style.css" text="결과 보기">
             <font>
-                <Font name="Hancom Gothic Bold" size="30.0" />
+                <Font name="NanumGothic" size="30.0" />
             </font>
             <styleClass>
                 <String fx:value="face-recognize-btn" />
@@ -39,27 +29,27 @@
         </Button>
         <Text fx:id="countRemain" layoutX="111.0" layoutY="675.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(? / ?)" textAlignment="CENTER" wrappingWidth="279.03997802734375">
             <font>
-                <Font name="Hancom Gothic Bold" size="18.0" />
+                <Font name="NanumGothicBold" size="23.0" />
             </font>
         </Text>
-      <Text fx:id="genderText" layoutX="44.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="성별 : 남성 (97.10%)" textAlignment="CENTER">
+      <Text fx:id="genderText" layoutX="92.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="성별 : ??? (??.??%)" textAlignment="CENTER">
          <font>
-            <Font name="Hancom Gothic Bold" size="26.0" />
+            <Font name="NanumGothicBold" size="26.0" />
          </font>
       </Text>
-      <Text fx:id="ageText" layoutX="44.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="나이 : 21-25 (43.72%)" textAlignment="CENTER">
+      <Text fx:id="ageText" layoutX="92.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="나이 : ??? (??.??%)" textAlignment="CENTER">
          <font>
-            <Font name="Hancom Gothic Bold" size="26.0" />
+            <Font name="NanumGothicBold" size="26.0" />
          </font>
       </Text>
-      <Text fx:id="emotionText" layoutX="45.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="감정 : 무표정 (23.89%)" textAlignment="CENTER">
+      <Text fx:id="emotionText" layoutX="93.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="감정 : ??? (??.??%)" textAlignment="CENTER">
          <font>
-            <Font name="Hancom Gothic Bold" size="26.0" />
+            <Font name="NanumGothicBold" size="26.0" />
          </font>
       </Text>
-      <Text fx:id="poseText" layoutX="44.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="자세 : 정면 (99.81%)" textAlignment="CENTER">
+      <Text fx:id="poseText" layoutX="92.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="자세 : ??? (??.??%)" textAlignment="CENTER">
          <font>
-            <Font name="Hancom Gothic Bold" size="26.0" />
+            <Font name="NanumGothicBold" size="26.0" />
          </font>
       </Text>
     </children>

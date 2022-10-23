@@ -30,13 +30,9 @@ public class FaceDefrag {
 
     String[] info = new String[4];
     double[] conf = new double[4];
-    long[] faceX = new long[5];
-    long[] faceY = new long[5];
 
     static ArrayList<String[]> faceInfos = new ArrayList<>();
     static ArrayList<double[]> faceConfidences = new ArrayList<>();
-    static ArrayList<long[]> faceXs = new ArrayList<>();
-    static ArrayList<long[]> faceYs = new ArrayList<>();
     static int faceLength;
 
 
@@ -51,8 +47,6 @@ public class FaceDefrag {
 
             faceInfos = new ArrayList<>();
             faceConfidences = new ArrayList<>();
-            faceXs = new ArrayList<>();
-            faceYs = new ArrayList<>();
 
             FaceReconize fcr = new FaceReconize();
             String paramName = "image"; // 파라미터명은 image로 지정
@@ -108,7 +102,7 @@ public class FaceDefrag {
                 }
                 br.close();
                 printInfo(response.toString());
-                try{
+                try {
                     Parent nextScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("face-frag-result.fxml")));
                     Scene scene = new Scene(nextScene);
                     Stage primaryStage = (Stage) getSetGo.getScene().getWindow();
@@ -139,7 +133,7 @@ public class FaceDefrag {
         JSONArray getFaces = (JSONArray) jsonObject.get("faces");
         faceLength = getFaces.size();
         //faces의 배열을 추출
-        if(faceLength > 0){
+        if (faceLength > 0) {
             for (int i = 0; i < faceLength; i++) {
                 info = new String[4];
                 conf = new double[4];
@@ -179,61 +173,23 @@ public class FaceDefrag {
                 System.out.println(Arrays.toString(info));
                 System.out.println(Arrays.toString(conf));
 
-//            if(info[3].equals("false_face")){
-//                continue;
-//            }
-
-                JSONObject getFaceLocate = (JSONObject) getFaceInfo.get("roi");
-                long faceStartX = (long) getFaceLocate.get("x");
-                long faceStartY = (long) getFaceLocate.get("y");
-                long faceWidth = (long) getFaceLocate.get("width");
-                long faceHeight = (long) getFaceLocate.get("height");
-                long faceEndX = faceStartX + faceWidth;
-                long faceEndY = faceStartY + faceHeight;
-
-                JSONObject getElementLocate = (JSONObject) getFaceInfo.get("landmark");
-
-                JSONObject getLeftEye = (JSONObject) getElementLocate.get("leftEye");
-                long leftEyeX = (long) getLeftEye.get("x");
-                long leftEyeY = (long) getLeftEye.get("y");
-                long relativeLeftEyeX = leftEyeX - faceStartX;
-                long relativeLeftEyeY = leftEyeY - faceStartY;
-                faceX[0] = relativeLeftEyeX;
-                faceY[0] = relativeLeftEyeY;
-
-
-                JSONObject getRightEye = (JSONObject) getElementLocate.get("rightEye");
-                long rightEyeX = (long) getRightEye.get("x");
-                long rightEyeY = (long) getRightEye.get("y");
-                long relativeRightEyeX = rightEyeX - faceStartX;
-                long relativeRightEyeY = rightEyeY - faceStartY;
-                faceX[1] = relativeRightEyeX;
-                faceY[1] = relativeRightEyeY;
-
-                JSONObject getNose = (JSONObject) getElementLocate.get("nose");
-                long noseX = (long) getNose.get("x");
-                long noseY = (long) getNose.get("y");
-                long relativeNoseX = noseX - faceStartX;
-                long relativeNoseY = noseY - faceStartY;
-                faceX[2] = relativeNoseX;
-                faceY[2] = relativeNoseY;
-
-                System.out.println(Arrays.toString(faceX));
-                System.out.println(Arrays.toString(faceY));
-
-
                 faceInfos.add(info);
                 faceConfidences.add(conf);
+
+
+
+                if (info[3].equals("false_face")) {
+                    continue;
+                }
             }
-        }
-        else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("");
             alert.setHeaderText("얼굴 미감지!");
             alert.setContentText("검사하고자 하는 사진에서 얼굴이 감지되지 않았습니다. 다른 사진을 시도해보세요.");
             alert.showAndWait();
 
-            try{
+            try {
                 Parent nextScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("face-reconize.fxml")));
                 Scene scene = new Scene(nextScene);
                 Stage primaryStage = (Stage) getSetGo.getScene().getWindow();
@@ -242,8 +198,6 @@ public class FaceDefrag {
                 e.printStackTrace();
             }
         }
-
-
 
 
     }
