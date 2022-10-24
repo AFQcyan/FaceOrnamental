@@ -14,7 +14,7 @@ public class DBUtil {
 
     static ArrayList<String> results = new ArrayList<>();
 
-    public static ArrayList<String> fetchDB(String columnName) {
+    public static ArrayList<String> fetchDB(String columnName, String loginUserId) {
         // Connection 객체를 자동완성으로 import할 때는 com.mysql.connection이 아닌
         // java 표준인 java.sql.Connection 클래스를 import해야 한다.
         results = new ArrayList<>();
@@ -42,9 +42,17 @@ public class DBUtil {
 
             stmt = conn.createStatement();
 
-            String sql = "SELECT " + columnName +" FROM faceUser";
+            String sql;
+
+            if(loginUserId == "*"){
+                sql = "SELECT " + columnName +" FROM faceUser WHERE 1";
+            }
+            else{
+                sql = "SELECT " + columnName +" FROM faceUser WHERE userId = '" + loginUserId + "'";
+            }
 
             rs = stmt.executeQuery(sql);
+            System.out.println(sql);
 
             while(rs.next()){
                 String dump = rs.getString(columnName);

@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="500.0" styleClass="face-background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.faceornamental.FaceShowFamousResult">
+<AnchorPane prefHeight="800.0" prefWidth="500.0" styleClass="face-background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.faceornamental.FaceShowFamousResult">
    <children>
       <Text layoutX="16.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="당신이 닮은 연예인은...">
          <font>
@@ -57,14 +57,5 @@
             <Font name="Malgun Gothic Bold" size="18.0" />
          </font>
       </Text>
-      <Button fx:id="saveButton" layoutX="319.0" layoutY="65.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="167.0" stylesheets="@style.css" text="결과 저장">
-         <font>
-            <Font name="Malgun Gothic Bold" size="18.0" />
-         </font>
-         <styleClass>
-            <String fx:value="face-recognize-btn" />
-            <String fx:value="face-btn" />
-         </styleClass>
-      </Button>
    </children>
 </AnchorPane>

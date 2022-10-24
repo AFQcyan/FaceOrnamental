@@ -42,7 +42,7 @@ public class RegisterView {
         boolean isDouble = false;
         String testId = idInput.getText();
         String testPw = pwInput.getText();
-        ArrayList<String> resultId = DBUtil.fetchDB("userId");
+        ArrayList<String> resultId = DBUtil.fetchDB("userId", "*");
         for(int i = 0; i < resultId.size(); i++){
             if(resultId.get(i).equals(idInput.getText())){
                 isDouble = true;

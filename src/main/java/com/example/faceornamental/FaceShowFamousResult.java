@@ -63,7 +63,7 @@ public class FaceShowFamousResult extends FaceCelebFrag{
         headerFamousConfidence.setText("확률(" + famousConfidence.get(status) + "%)");
         explainFamous.setText("당신은 " + getFamous.get(status) + " 님과 \n[" + calcPercent(famousConfidence.get(status)) +"] 닮았어요!\n " + getFamous.get(status)  + "님의 얼굴이 궁금하다면,\n 직접 검색해보세요!");
         if(LoginView.isLogin){
-            DBUtil.updateDB("userNowCeleb", LoginView.loginUserid, getFamous.get(status));
+            DBUtil.updateDB("userNowCeleb", LoginView.loginUserid, getFamous.get(status) + " (" + famousConfidence.get(status) + "%)");
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("");

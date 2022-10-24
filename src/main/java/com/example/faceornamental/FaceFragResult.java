@@ -111,12 +111,9 @@ public class FaceFragResult extends FaceDefrag {
         countRemain.setText("(" + (status + 1) + " / " + endResult + ")");
         if(LoginView.isLogin){
             DBUtil.updateDB("userNowEmote", LoginView.loginUserid, emoji);
-            System.out.println(transGender(faceInfos.get(status)[1]));
             DBUtil.updateDB("userNowGender", LoginView.loginUserid, gender);
             DBUtil.updateDB("userNowAge", LoginView.loginUserid, age);
-            System.out.println(transEmoji(faceInfos.get(status)[2]));
             DBUtil.updateDB("userNowPose", LoginView.loginUserid, pose);
-            System.out.println(transEmoji(faceInfos.get(status)[3]));
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("");
             alert.setHeaderText("자동 저장");

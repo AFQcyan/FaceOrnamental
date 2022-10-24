@@ -58,8 +58,8 @@ public class LoginView{
     }
 
     public void tryLogin(){
-        ArrayList<String> resultId = DBUtil.fetchDB("userId");
-        ArrayList<String> resultPw = DBUtil.fetchDB("userPw");
+        ArrayList<String> resultId = DBUtil.fetchDB("userId", "*");
+        ArrayList<String> resultPw = DBUtil.fetchDB("userPw", "*");
         for(int i = 0; i < resultId.size(); i++){
            if(resultId.get(i).equals(idInput.getText()) && resultPw.get(i).equals(pwInput.getText())){
                 isLogin = true;
@@ -80,7 +80,7 @@ public class LoginView{
                 alert.setHeaderText("로그인 성공");
                 alert.setContentText(idInput.getText() + "님의 로그인이 정상적으로 완료 되었습니다.");
                 alert.showAndWait();
-                loginUserid = DBUtil.fetchDB("userId").get(i);
+                loginUserid = DBUtil.fetchDB("userId", "*").get(i);
                try{
                    Parent nextScene = FXMLLoader.load(getClass().getResource("main-page.fxml"));
                    Scene scene = new Scene(nextScene);

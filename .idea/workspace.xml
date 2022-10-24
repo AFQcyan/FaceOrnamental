@@ -5,27 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="673d33c0-dc67-4208-acdb-f40c6e4d5b2f" name="변경" comment="변경">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/mysql-connector-java-8.0.20.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/AccountView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/account-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_20.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_20.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FaceOrnamental.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FaceOrnamental.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/AccountView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/AccountView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/DBUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceFragResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceFragResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceShowFamousResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceShowFamousResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/MainPageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/MainPageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-celeb-frag.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-celeb-frag.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-defrag.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-defrag.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-famous.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-famous.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-frag-result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-frag-result.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-reconize.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-reconize.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/RegisterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/account-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/account-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-show-famous-result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-show-famous-result.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/main-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/main-page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/register-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/register-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +68,7 @@
       <recent name="C:\Users\user\Desktop\새 폴더\FaceOrnamental\framework" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.MainPage">
+  <component name="RunManager" selected="Application.MainPage">
     <configuration name="APIExamFace" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.faceornamental.APIExamFace" />
       <module name="FaceOrnamental" />
@@ -129,7 +118,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.MainPage" />
+        <item itemvalue="Application.MainPage" />
         <item itemvalue="JUnit.FaceOrnamental의 전부" />
       </list>
     </recent_temporary>
@@ -153,6 +142,8 @@
       <workItem from="1666517431117" duration="5230000" />
       <workItem from="1666577201481" duration="307000" />
       <workItem from="1666577667938" duration="6254000" />
+      <workItem from="1666606426675" duration="3792000" />
+      <workItem from="1666610777433" duration="2942000" />
     </task>
     <servers />
   </component>
@@ -169,7 +160,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
