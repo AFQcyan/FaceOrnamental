@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="673d33c0-dc67-4208-acdb-f40c6e4d5b2f" name="변경" comment="변경">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/AccountView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/AccountView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/DBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceFragResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceFragResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceShowFamousResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/FaceShowFamousResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/faceornamental/RegisterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/account-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/account-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-show-famous-result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/faceornamental/face-show-famous-result.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +45,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/example/faceornamental" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/framework/mysql-connector-java-8.0.20.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -143,7 +134,7 @@
       <workItem from="1666577201481" duration="307000" />
       <workItem from="1666577667938" duration="6254000" />
       <workItem from="1666606426675" duration="3792000" />
-      <workItem from="1666610777433" duration="2942000" />
+      <workItem from="1666610777433" duration="3788000" />
     </task>
     <servers />
   </component>
