@@ -23,12 +23,12 @@
             </Button>
             <TextField fx:id="pwInput" layoutX="58.0" layoutY="54.0" prefHeight="34.0" prefWidth="288.0" promptText="비밀번호를 입력하세요(4자 이상)">
                <font>
-                  <Font name="NanumGothicBold" size="18.0" />
+                  <Font name="Malgun Gothic Bold" size="18.0" />
                </font>
             </TextField>
             <Text layoutX="-35.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PW :">
                <font>
-                  <Font name="NanumGothicBold" size="36.0" />
+                  <Font name="Malgun Gothic Bold" size="36.0" />
                </font>
             </Text>
          </children>
@@ -44,17 +44,17 @@
       </Text>
       <TextField fx:id="idInput" layoutX="158.0" layoutY="278.0" prefHeight="34.0" prefWidth="288.0" promptText="아이디를 입력하세요(4자 이상)">
          <font>
-            <Font name="NanumGothicBold" size="18.0" />
+            <Font name="Malgun Gothic Bold" size="18.0" />
          </font>
       </TextField>
       <Text layoutX="65.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID :">
          <font>
-            <Font name="NanumGothicBold" size="36.0" />
+            <Font name="Malgun Gothic Bold" size="36.0" />
          </font>
       </Text>
       <Button fx:id="backButton" layoutX="20.0" layoutY="17.0" mnemonicParsing="false" onAction="#backToPrevious" prefHeight="17.0" prefWidth="134.0" stylesheets="@style.css" text="뒤로 가기">
          <font>
-            <Font name="Hancom Gothic Bold" size="20.0" />
+            <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
          <styleClass>
             <String fx:value="face-recognize-btn" />

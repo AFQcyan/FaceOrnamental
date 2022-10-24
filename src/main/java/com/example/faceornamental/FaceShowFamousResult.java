@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -26,6 +27,8 @@ public class FaceShowFamousResult extends FaceCelebFrag{
     Text countRemain;
     @FXML
     Button submitResultBtn;
+    @FXML
+    Button saveButton;
 
 
 
@@ -59,6 +62,22 @@ public class FaceShowFamousResult extends FaceCelebFrag{
         countRemain.setText("(" + (status + 1) + " / " + endResult + ")");
         headerFamousConfidence.setText("확률(" + famousConfidence.get(status) + "%)");
         explainFamous.setText("당신은 " + getFamous.get(status) + " 님과 \n[" + calcPercent(famousConfidence.get(status)) +"] 닮았어요!\n " + getFamous.get(status)  + "님의 얼굴이 궁금하다면,\n 직접 검색해보세요!");
+        if(LoginView.isLogin){
+            DBUtil.updateDB("userNowCeleb", LoginView.loginUserid, getFamous.get(status));
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText("자동 저장");
+            alert.setContentText("자동 저장 되었습니다.");
+            alert.showAndWait();
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText("자동 저장 실패");
+            alert.setContentText("로그인 하시면 자동저장 기능을 사용하실 수 있습니다!");
+            alert.showAndWait();
+        }
     }
 
     public void setResult(){

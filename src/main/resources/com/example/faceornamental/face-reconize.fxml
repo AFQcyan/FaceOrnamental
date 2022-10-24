@@ -11,7 +11,7 @@
    <children>
       <Button fx:id="verticalButton" layoutX="71.0" layoutY="601.0" mnemonicParsing="false" onAction="#changeToVertical" prefHeight="52.0" prefWidth="154.0" stylesheets="@style.css" text="세로 사진">
          <font>
-            <Font name="NanumGothicBold" size="21.0" />
+            <Font name="Malgun Gothic Bold" size="21.0" />
          </font>
          <styleClass>
             <String fx:value="change-to-vertical" />
@@ -19,7 +19,7 @@
          </styleClass></Button>
       <Button fx:id="horizonButton" layoutX="272.0" layoutY="601.0" mnemonicParsing="false" onAction="#changeToHorizon" prefHeight="52.0" prefWidth="154.0" stylesheets="@style.css" text="가로 사진">
          <font>
-            <Font name="NanumGothicBold" size="21.0" />
+            <Font name="Malgun Gothic Bold" size="21.0" />
          </font>
          <styleClass>
             <String fx:value="change-to-horizon" />
@@ -28,7 +28,7 @@
       <ImageView fx:id="showImage" fitHeight="400.0" fitWidth="300.0" layoutX="104.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" styleClass="image-show" />
       <Button fx:id="submittingButton" layoutX="22.0" layoutY="698.0" mnemonicParsing="false" onAction="#submitManage" prefHeight="68.0" prefWidth="300.0" stylesheets="@style.css" text="사진 등록하기">
          <font>
-            <Font name="NanumGothicBold" size="29.0" />
+            <Font name="Malgun Gothic Bold" size="29.0" />
          </font>
          <styleClass>
             <String fx:value="face-recognize-btn" />
@@ -36,11 +36,11 @@
          </styleClass></Button>
       <Label fx:id="headerText" layoutX="70.0" layoutY="55.0" styleClass="face-main" stylesheets="@style.css" text="얼굴 분석을 위한 사진을 등록하세요.">
          <font>
-            <Font name="NanumGothicBold" size="24.0" />
+            <Font name="Malgun Gothic Bold" size="24.0" />
          </font></Label>
       <Button fx:id="photoReSetButton" layoutX="337.0" layoutY="698.0" mnemonicParsing="false" onAction="#photoReSet" prefHeight="68.0" prefWidth="143.0" stylesheets="@style.css" text="사진 재설정">
          <font>
-            <Font name="NanumGothicBold" size="21.0" />
+            <Font name="Malgun Gothic Bold" size="21.0" />
          </font>
          <styleClass>
             <String fx:value="face-recognize-btn" />
@@ -49,7 +49,7 @@
       </Button>
       <Button fx:id="backButton" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" onAction="#backToPrevious" prefHeight="17.0" prefWidth="134.0" stylesheets="@style.css" text="뒤로 가기">
          <font>
-            <Font name="NanumGothicBold" size="20.0" />
+            <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
          <styleClass>
             <String fx:value="face-recognize-btn" />

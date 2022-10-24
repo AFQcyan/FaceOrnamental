@@ -23,6 +23,8 @@ MainPageHandler{
     @FXML
     private Text mainText;
     @FXML
+    private Text loginID;
+    @FXML
     Button loginRegisterBtn;
     @FXML
     private Button recognizeFaceBtn;
@@ -30,6 +32,10 @@ MainPageHandler{
     private Button FindFamousBtn;
     @FXML
     private Button goToProfileBtn;
+    @FXML
+    private Button goToAccount;
+    @FXML
+    private Button goToRefresh;
 
     public void goToFaceRecog(){
         try{
@@ -65,6 +71,9 @@ MainPageHandler{
                 alert.setHeaderText("로그아웃됨");
                 alert.setContentText("성공적으로 로그아웃 되었습니다.");
                 alert.showAndWait();
+                loginRegisterBtn.setText("로그인 / 회원가입");
+                loginID.setText("현재 로그인된 ID : ");
+                LoginView.loginUserid = null;
             }
             else{
             }
@@ -81,4 +90,37 @@ MainPageHandler{
             }
         }
     }
+    public void accountMethod(){
+        if(LoginView.isLogin == false){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText("로그인 되어있지 않음!");
+            alert.setContentText("현재 로그인 되어있지 않습니다. 로그인 후 다시 시도하세요.");
+            alert.showAndWait();
+        }
+        else{
+            try {
+                Parent nextScene = FXMLLoader.load(getClass().getResource("account-view.fxml"));
+                Scene scene = new Scene(nextScene);
+                Stage primaryStage = (Stage) recognizeFaceBtn.getScene().getWindow();
+                primaryStage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void reloadMethod(){
+        if(LoginView.isLogin == false){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText("로그인 되어있지 않음!");
+            alert.setContentText("현재 로그인 되어있지 않습니다. 로그인 후 다시 시도하세요.");
+            alert.showAndWait();
+        }
+        else{
+            loginID.setText("현재 로그인된 ID : " + LoginView.loginUserid);
+            loginRegisterBtn.setText("로그아웃");
+        }
+    }
+
 }
